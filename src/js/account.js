@@ -408,7 +408,7 @@ class Account{
 		if(this.locked){
 			return
 		}
-		open("privacy")
+		open("privacy.txt")
 	}
 	onLogout(){
 		if(event){

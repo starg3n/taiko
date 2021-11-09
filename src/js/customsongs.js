@@ -360,7 +360,7 @@ class CustomSongs{
 			return
 		}
 		this.changeSelected(this.linkPrivacy)
-		open("privacy")
+		open("privacy.txt")
 	}
 	loading(show){
 		if(this.noPage){
