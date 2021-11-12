@@ -8,7 +8,7 @@
 	"accounts": false,
 	"assets_baseurl": "https://taiko.uk/taiko/assets-201202-p1/",
 	"custom_js": "",
-	"email": "",
+	"email": null,
 	"google_credentials": {
 		"api_key": "AIzaSyCWvZN6AH6lvoyT4-0pzwXO7K5l4FZbPng",
 		"gdrive_enabled": true,
