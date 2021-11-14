@@ -25,6 +25,7 @@ class P2Connection{
 		}
 	}
 	open(){
+    return
 		this.closed = false
 		var wsProtocol = location.protocol == "https:" ? "wss:" : "ws:"
 		this.socket = new WebSocket(wsProtocol + "//" + location.host + "/p2")
