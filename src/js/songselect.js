@@ -95,18 +95,20 @@ class SongSelect{
 				return a.id > b.id ? 1 : -1
 			}
 		})
-		this.songs.push({
-			title: strings.back,
-			skin: this.songSkin.back,
-			action: "back"
-		})
-		this.songs.push({
-			title: strings.randomSong,
-			skin: this.songSkin.random,
-			action: "random",
-			category: strings.random,
-			canJump: true
-		})
+		if(assets.songs.length){
+			this.songs.push({
+				title: strings.back,
+				skin: this.songSkin.back,
+				action: "back"
+			})
+			this.songs.push({
+				title: strings.randomSong,
+				skin: this.songSkin.random,
+				action: "random",
+				category: strings.random,
+				canJump: true
+			})
+		}
 		if(touchEnabled){
 			if(fromTutorial === "tutorial"){
 				fromTutorial = false
