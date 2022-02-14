@@ -1,6 +1,6 @@
 addEventListener("ready", () => {
 	class Plugin extends Patch{
-		name = "Taiko Web (gdrive) custom code"
+		name = "Custom patches"
 		version = "22.02.15"
 		description = "Does not include the custom code in loader.js"
 		author = "Katie Frogs"
@@ -42,7 +42,7 @@ addEventListener("ready", () => {
 					this.selected = this.items.length - 1
 					
 					`, 'this.setStrings()')
-					return str.replace(/pageEvents\.add.*(pageEvents\.send)/,
+					return str.replace(/pageEvents\.add[\s\S]*(pageEvents\.send)/,
 					`pageEvents.add(this.endButton, ["mousedown", "touchstart"], this.onEnd.bind(this))
 					pageEvents.add(this.formButton, ["mousedown", "touchstart"], this.linkButton.bind(this))
 					this.keyboard = new Keyboard({
@@ -63,8 +63,8 @@ addEventListener("ready", () => {
 				new EditValue(Tutorial.prototype, "keyPressed").load(() => this.keyPressed),
 				new EditValue(Tutorial.prototype, "mod").load(() => this.mod),
 				new EditValue(Tutorial.prototype, "onEnd").load(() => this.onEnd),
-				new EditFunction(Tutorial.prototype, "init").load(str => {
-					str = plugins.insertBefore(str,
+				new EditFunction(Tutorial.prototype, "setStrings").load(str => {
+					return plugins.insertBefore(str,
 					`this.getLink(this.formButton).innerText = "Application Form"
 					this.formButton.setAttribute("alt", "Application Form")
 					`, 'this.tutorialDiv.innerHTML = ""')
@@ -72,7 +72,7 @@ addEventListener("ready", () => {
 				new EditValue(Tutorial.prototype, "getLink").load(() => this.getLink),
 				new EditValue(Tutorial.prototype, "linkButton").load(() => this.linkButton),
 				new EditFunction(Tutorial.prototype, "clean").load(str => {
-					str = plugins.insertBefore(str,
+					return plugins.insertBefore(str,
 					`pageEvents.remove(this.formButton, ["mousedown", "touchstart"])
 					`, 'assets.sounds["bgm_setsume"].stop()')
 				})
