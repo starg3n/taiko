@@ -1,13 +1,13 @@
 {
 	"_version": {
-		"commit": "8fbb45db4fd845677bd0de4028f05c1de6f68b28",
-		"commit_short": "8fbb45d",
+		"commit": "1db4eb6710a65973bcef9afafade5b85b09fb8e8",
+		"commit_short": "1db4eb6",
 		"url": "https://github.com/bui/taiko-web/",
-		"version": "21.06.06"
+		"version": "22.02.11"
 	},
 	"accounts": false,
 	"assets_baseurl": "https://taiko.uk/taiko/assets-201202-p1/",
-	"custom_js": "",
+	"custom_js": "custom.js",
 	"email": null,
 	"google_credentials": {
 		"api_key": "AIzaSyCWvZN6AH6lvoyT4-0pzwXO7K5l4FZbPng",

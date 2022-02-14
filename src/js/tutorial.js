@@ -1,76 +1,39 @@
 class Tutorial{
-	constructor(fromSongSel, songId){
+	constructor(...args){
+		this.init(...args)
+	}
+	init(fromSongSel, songId){
 		this.fromSongSel = fromSongSel
 		this.songId = songId
 		loader.changePage("tutorial", true)
 		assets.sounds["bgm_setsume"].playLoop(0.1, false, 0, 1.054, 16.054)
-		
 		this.endButton = this.getElement("view-end-button")
+		
 		this.tutorialTitle = this.getElement("view-title")
 		this.tutorialDiv = document.createElement("div")
 		this.getElement("view-content").appendChild(this.tutorialDiv)
-		
-		this.items = []
-		
-		var leftButtons = document.createElement("div")
-		leftButtons.classList.add("left-buttons")
-		
-		this.formButton = document.createElement("div")
-		this.formButton.classList.add("taibtn", "stroke-sub", "link-btn")
-		var link = document.createElement("a")
-		link.target = "_blank"
-		link.href = "https://forms.gle/8YtFaHdGksWcVqvB6"
-		this.formButton.appendChild(link)
-		leftButtons.appendChild(this.formButton)
-		this.endButton.parentNode.insertBefore(leftButtons, this.endButton)
-		this.items.push(this.formButton)
-		
-		this.items.push(this.endButton)
-		this.selected = this.items.length - 1
-		
 		this.setStrings()
 		
-		pageEvents.add(this.endButton, ["mousedown", "touchstart"], this.onEnd.bind(this))
-		pageEvents.add(this.formButton, ["mousedown", "touchstart"], this.linkButton.bind(this))
+		pageEvents.add(this.endButton, ["mousedown", "touchstart"], event => {
+			if(event.type === "touchstart"){
+				event.preventDefault()
+				this.touched = true
+			}else if(event.type === "mousedown" && event.which !== 1){
+				return
+			}
+			this.onEnd(true)
+		})
 		this.keyboard = new Keyboard({
-			confirm: ["enter", "space", "don_l", "don_r"],
-			previous: ["left", "up", "ka_l"],
-			next: ["right", "down", "ka_r"],
-			back: ["escape"]
-		}, this.keyPressed.bind(this))
+			confirm: ["enter", "space", "esc", "don_l", "don_r"]
+		}, this.onEnd.bind(this))
 		this.gamepad = new Gamepad({
-			"confirm": ["b", "ls", "rs"],
-			"previous": ["u", "l", "lb", "lt", "lsu", "lsl"],
-			"next": ["d", "r", "rb", "rt", "lsd", "lsr"],
-			"back": ["start", "a"]
-		}, this.keyPressed.bind(this))
+			confirm: ["start", "b", "ls", "rs"]
+		}, this.onEnd.bind(this))
 		
 		pageEvents.send("tutorial")
 	}
 	getElement(name){
 		return loader.screen.getElementsByClassName(name)[0]
-	}
-	keyPressed(pressed, name){
-		if(!pressed){
-			return
-		}
-		var selected = this.items[this.selected]
-		if(name === "confirm"){
-			if(selected === this.endButton){
-				this.onEnd()
-			}else{
-				this.getLink(selected).click()
-				pageEvents.send("about-link", selected)
-				assets.sounds["se_don"].play()
-			}
-		}else if(name === "previous" || name === "next"){
-			selected.classList.remove("selected")
-			this.selected = this.mod(this.items.length, this.selected + (name === "next" ? 1 : -1))
-			this.items[this.selected].classList.add("selected")
-			assets.sounds["se_ka"].play()
-		}else if(name === "back"){
-			this.onEnd()
-		}
 	}
 	insertText(text, parent){
 		parent.appendChild(document.createTextNode(text))
@@ -100,35 +63,23 @@ class Tutorial{
 			parent.appendChild(kbd)
 		}
 	}
-	mod(length, index){
-		return ((index % length) + length) % length
-	}
-	onEnd(event){
-		var touched = false
-		if(event){
-			if(event.type === "touchstart"){
-				event.preventDefault()
-				touched = true
-			}else if(event.which !== 1){
-				return
-			}
+	onEnd(pressed, name){
+		if(pressed){
+			this.clean()
+			assets.sounds["se_don"].play()
+			try{
+				localStorage.setItem("tutorial", "true")
+			}catch(e){}
+			setTimeout(() => {
+				new SongSelect(this.fromSongSel ? "tutorial" : false, false, this.touched, this.songId)
+			}, 500)
 		}
-		this.clean()
-		assets.sounds["se_don"].play()
-		try{
-			localStorage.setItem("tutorial", "true")
-		}catch(e){}
-		setTimeout(() => {
-			new SongSelect(this.fromSongSel ? "tutorial" : false, false, touched, this.songId)
-		}, 500)
 	}
 	setStrings(){
 		this.tutorialTitle.innerText = strings.howToPlay
 		this.tutorialTitle.setAttribute("alt", strings.howToPlay)
 		this.endButton.innerText = strings.tutorial.ok
 		this.endButton.setAttribute("alt", strings.tutorial.ok)
-		this.getLink(this.formButton).innerText = "Application Form"
-		this.formButton.setAttribute("alt", "Application Form")
 		this.tutorialDiv.innerHTML = ""
 		var kbdSettings = settings.getItem("keyboardSettings")
 		var pauseKey = [strings.tutorial.key.esc]
@@ -176,21 +127,10 @@ class Tutorial{
 		})
 		this.tutorialDiv.appendChild(par)
 	}
-	getLink(target){
-		return target.getElementsByTagName("a")[0]
-	}
-	linkButton(event){
-		if(event.target === event.currentTarget && (event.type === "touchstart" || event.which === 1)){
-			this.getLink(event.currentTarget).click()
-			pageEvents.send("about-link", event.currentTarget)
-			assets.sounds["se_don"].play()
-		}
-	}
 	clean(){
 		this.keyboard.clean()
 		this.gamepad.clean()
 		pageEvents.remove(this.endButton, ["mousedown", "touchstart"])
-		pageEvents.remove(this.formButton, ["mousedown", "touchstart"])
 		assets.sounds["bgm_setsume"].stop()
 		delete this.tutorialTitle
 		delete this.endButton

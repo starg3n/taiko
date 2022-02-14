@@ -1,5 +1,8 @@
 class P2Connection{
-	constructor(){
+	constructor(...args){
+		this.init(...args)
+	}
+	init(){
 		this.closed = true
 		this.lastMessages = {}
 		this.otherConnected = false
@@ -25,7 +28,6 @@ class P2Connection{
 		}
 	}
 	open(){
-    return
 		this.closed = false
 		var wsProtocol = location.protocol == "https:" ? "wss:" : "ws:"
 		this.socket = new WebSocket(wsProtocol + "//" + location.host + "/p2")
