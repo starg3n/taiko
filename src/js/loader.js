@@ -16,7 +16,7 @@ class Loader{
 			this.screen.innerHTML = page
 		}))
 		
-		promises.push(this.ajax("/api/config").then(conf => {
+		promises.push(this.ajax("/api/config.json").then(conf => {
 			gameConfig = JSON.parse(conf)
 		}))
 		
@@ -103,7 +103,7 @@ class Loader{
 			}), url)
 		})
 		
-		this.addPromise(this.ajax("/api/categories").then(cats => {
+		this.addPromise(this.ajax("/api/categories.json").then(cats => {
 			assets.categories = JSON.parse(cats)
 			assets.categories.forEach(cat => {
 				if(cat.song_skin){
@@ -123,7 +123,7 @@ class Loader{
 					infoFill: "#656565"
 				}
 			})
-		}), "/api/categories")
+		}), "/api/categories.json")
 		
 		var url = gameConfig.assets_baseurl + "img/vectors.json" + this.queryString
 		this.addPromise(this.ajax(url).then(response => {
@@ -132,7 +132,7 @@ class Loader{
 		
 		this.afterJSCount =
 			[
-				"/api/songs",
+				"/api/songs.json",
 				"blurPerformance",
 				"categories"
 			].length +
@@ -147,7 +147,7 @@ class Loader{
 				return
 			}
 			
-			this.addPromise(this.ajax("/api/songs").then(songs => {
+			this.addPromise(this.ajax("/api/songs.json").then(songs => {
 				songs = JSON.parse(songs)
 				songs.forEach(song => {
 					var directory = gameConfig.songs_baseurl + song.id + "/"
@@ -172,7 +172,7 @@ class Loader{
 				})
 				assets.songsDefault = songs
 				assets.songs = assets.songsDefault
-			}), "/api/songs")
+			}), "/api/songs.json")
 			
 			var categoryPromises = []
 			assets.categories //load category backgrounds to DOM
