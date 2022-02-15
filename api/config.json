@@ -1,9 +1,9 @@
 {
 	"_version": {
-		"commit": "23d269cf928c127ed6db510427b8dcb250443f70",
-		"commit_short": "23d269c",
+		"commit": "dfbdba50efe28fdeebedebeb641dcadc6eb5038f",
+		"commit_short": "dfbdba5",
 		"url": "https://github.com/bui/taiko-web/",
-		"version": "22.02.15"
+		"version": "22.02.11"
 	},
 	"accounts": false,
 	"assets_baseurl": "https://taiko.uk/taiko/assets-201202-p1/",
