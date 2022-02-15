@@ -2,7 +2,7 @@ addEventListener("ready", () => {
 	class Plugin extends Patch{
 		name = "Custom patches"
 		version = "22.02.15"
-		description = "Opens the correct privacy file. Suppresses multiplayer errors. Removes Random Song and an extra Back from the song select when no songs are loaded. Adds an Application Form button to the tutorial. Fixes not being able to properly turn off plugins when there is more than one. Does not include the custom code in loader.js, which uses correct paths for api files."
+		description = "Opens the correct privacy file. Suppresses multiplayer errors. Removes Random Song and an extra Back from the song select when no songs are loaded. Adds an Application Form button to the tutorial. Does not include the custom code in loader.js, which uses correct paths for api files."
 		author = "Katie Frogs"
 		
 		load(){
@@ -75,9 +75,6 @@ addEventListener("ready", () => {
 					return plugins.insertBefore(str,
 					`pageEvents.remove(this.formButton, ["mousedown", "touchstart"])
 					`, 'assets.sounds["bgm_setsume"].stop()')
-				}),
-				new EditFunction(Plugins.prototype, "getSettings").load(str => {
-					return plugins.strReplace(str, 'var plugin = obj.plugin', `let plugin = obj.plugin`)
 				})
 			)
 		}
