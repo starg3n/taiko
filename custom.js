@@ -241,5 +241,5 @@ addEventListener("ready", () => {
 		}
 	}
 	
-	plugins.add(Plugin)?.start()
+	plugins.add(Plugin, "plugin2")?.start()
 })
