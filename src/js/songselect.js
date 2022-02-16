@@ -290,10 +290,12 @@ class SongSelect{
 			focused: true
 		}
 		this.songSelecting = {
-			speed: 800,
+			speed: 400,
 			resize: 0.3,
 			scrollDelay: 0.1
 		}
+		this.wheelScrolls = 0
+		this.wheelTimer = 0
 		
 		this.startPreview(true)
 		
@@ -339,7 +341,9 @@ class SongSelect{
 			this.touchFullBtn.style.display = "block"
 			pageEvents.add(this.touchFullBtn, "touchend", toggleFullscreen)
 		}
-		
+
+		pageEvents.add(this.canvas, "wheel", this.mouseWheel.bind(this))
+
 		this.selectable = document.getElementById("song-sel-selectable")
 		this.selectableText = ""
 		
@@ -356,7 +360,7 @@ class SongSelect{
 	keyPress(pressed, name, event, repeat){
 		if(pressed){
 			if(!this.pressedKeys[name]){
-				this.pressedKeys[name] = this.getMS() + 300
+				this.pressedKeys[name] = this.getMS() + (name === "left" || name === "right" ? 150 : 300)
 			}
 		}else{
 			this.pressedKeys[name] = 0
@@ -502,6 +506,17 @@ class SongSelect{
 	}
 	touchEnd(event){
 		event.preventDefault()
+	}
+	mouseWheel(event){
+		if(this.state.screen === "song"){
+			this.wheelTimer = this.getMS()
+
+			if(event.deltaY < 0) {
+				this.wheelScrolls--
+			}else if(event.deltaY > 0){
+				this.wheelScrolls++
+			}
+		}
 	}
 	mouseMove(event){
 		var mouse = this.mouseOffset(event.offsetX, event.offsetY)
@@ -892,13 +907,18 @@ class SongSelect{
 		
 		for(var key in this.pressedKeys){
 			if(this.pressedKeys[key]){
-				if(ms >= this.pressedKeys[key] + 50){
+				if(ms >= this.pressedKeys[key] + (this.state.screen === "song" && (key === "right" || key === "left") ? 20 : 50)){
 					this.keyPress(true, key, null, true)
 					this.pressedKeys[key] = ms
 				}
 			}
 		}
-		
+
+		if(this.wheelScrolls !== 0 && !this.state.locked && ms >= this.wheelTimer + 20) {
+			this.moveToSong(this.wheelScrolls)
+			this.wheelScrolls -= this.wheelScrolls
+		}
+
 		if(!this.redrawRunning){
 			return
 		}
@@ -2746,7 +2766,7 @@ class SongSelect{
 			}
 		})
 		pageEvents.remove(loader.screen, ["mousemove", "mouseleave", "mousedown", "touchstart"])
-		pageEvents.remove(this.canvas, "touchend")
+		pageEvents.remove(this.canvas, ["touchend", "wheel"])
 		pageEvents.remove(p2, "message")
 		if(this.touchEnabled && fullScreenSupported){
 			pageEvents.remove(this.touchFullBtn, "click")
