@@ -1,13 +1,16 @@
 addEventListener("ready", () => {
 	class Plugin extends Patch{
 		name = "Default patches"
-		version = "22.02.15"
+		version = "22.02.16"
 		description = "Opens the correct privacy file. Suppresses multiplayer errors. Removes Random Song and an extra Back from the song select when no songs are loaded. Adds an Application Form button to the tutorial. Does not include the custom code in loader.js, which uses correct paths for api files."
 		author = "Katie Frogs"
 		
 		load(){
 			this.addEdits(
 				new EditFunction(CustomSongs.prototype, "openPrivacy").load(str => {
+					return plugins.insertAfter(str, 'open("privacy', `.txt`)
+				}),
+				new EditFunction(Account.prototype, "openPrivacy").load(str => {
 					return plugins.insertAfter(str, 'open("privacy', `.txt`)
 				}),
 				new EditValue(p2, "open").load(() => {
