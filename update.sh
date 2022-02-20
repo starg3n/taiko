@@ -19,3 +19,5 @@ sed -i "s/$(jq -r ._version.version api/config.json)/$(jq -r .version .data/taik
 
 jq -sc '.[0] * {"_version": .[1]}' api/config.json .data/taiko-web/version.json > config.json
 mv config.json api/config.json
+
+cat loader-patch.js >> ./src/js/loader.js
