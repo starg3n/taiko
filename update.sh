@@ -21,3 +21,7 @@ jq -sc '.[0] * {"_version": .[1]}' api/config.json .data/taiko-web/version.json 
 mv config.json api/config.json
 
 cat loader-patch.js >> ./src/js/loader.js
+
+cd plugins
+git pull
+cd ..
