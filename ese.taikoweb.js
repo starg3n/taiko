@@ -19,7 +19,7 @@ export default class Plugin extends Patch{
 		this.bg_genre_kids = image
 		promises.push(pageEvents.load(image))
 
-		promises.push(loader.ajax("https://s2.taiko.uk/songs_ese.json").then(songs => {
+		promises.push(loader.ajax("https://s2.taiko.uk/songs_ese.json?220223-2").then(songs => {
 			songs = JSON.parse(songs)
 			songs.forEach(song => {
 				var directory = "https://s2.taiko.uk/songs_ese/" + song.id + "/"
@@ -97,6 +97,7 @@ export default class Plugin extends Patch{
 						assets.categories = assets.categories_ese
 						assets.songs = assets.songs_ese
 						gameConfig.ese = true
+						localStorage.setItem('ese', 'true')
 						setTimeout(() => {
 							new SongSelect(true, false, this.touchEnabled)
 						}, 500)
@@ -104,6 +105,7 @@ export default class Plugin extends Patch{
 						assets.categories = assets.categoriesDefault
 						assets.songs = assets.songsDefault
 						gameConfig.ese = false
+						localStorage.setItem('ese', 'false')
 						setTimeout(() => {
 							new SongSelect(true, false, this.touchEnabled)
 						}, 500)
@@ -145,6 +147,7 @@ export default class Plugin extends Patch{
 						assets.categories = assets.categories_ese
 						assets.songs = assets.songs_ese
 						gameConfig.ese = true
+						localStorage.setItem('ese', 'true')
 						setTimeout(() => {
 							new SongSelect("ese", false, this.touchEnabled)
 						}, 500)
@@ -152,6 +155,7 @@ export default class Plugin extends Patch{
 						assets.categories = assets.categoriesDefault
 						assets.songs = assets.songsDefault
 						gameConfig.ese = false
+						localStorage.setItem('ese', 'false')
 						setTimeout(() => {
 							new SongSelect("ese", false, this.touchEnabled)
 						}, 500)
@@ -166,6 +170,7 @@ export default class Plugin extends Patch{
 					assets.categories = assets.categoriesDefault
 					assets.songs = assets.songsDefault
 					gameConfig.ese = false
+					localStorage.setItem('ese', 'false')
 				}
 				`, `this.clean()`)
 				return str
@@ -181,6 +186,44 @@ export default class Plugin extends Patch{
 			new EditFunction(LoadSong.prototype, "setupMultiplayer").load(str => {
 				str = plugins.strReplace(str,
 				`id: song.folder`, `id: song.hash`)
+				return str
+			}),
+
+			new EditFunction(Titlescreen.prototype, "init").load(str => {
+				str = plugins.insertAfter(str,
+				`if(songId){`,
+				`	var ese = false
+					if (songId > 100000) {
+						this.songId -= 100000
+						ese = true
+					}
+					if(ese){
+						assets.categories = assets.categories_ese
+						assets.songs = assets.songs_ese
+						gameConfig.ese = true
+						localStorage.setItem('ese', 'true')
+					} else {
+						assets.categories = assets.categoriesDefault
+						assets.songs = assets.songsDefault
+						gameConfig.ese = false
+						localStorage.setItem('ese', 'false')
+					}
+
+				`)
+
+				return str
+			}),
+
+			new EditFunction(Titlescreen.prototype, "goNext").load(str => {
+				str = plugins.insertBefore(str,
+				`if (localStorage.getItem('ese') === 'true') {
+					assets.categories = assets.categories_ese
+					assets.songs = assets.songs_ese
+					gameConfig.ese = true
+				}
+				`,
+				'\n\t\t\t\t\tsetTimeout(() => {')
+
 				return str
 			}),
 
