@@ -1,6 +1,6 @@
 export default class Plugin extends Patch{
 	name = "Default patches"
-	version = "22.02.17"
+	version = "22.02.23"
 	description = "Opens the correct privacy file. Suppresses multiplayer errors. Adds an Application Form button to the tutorial. Does not include the custom code in loader.js, which uses correct paths for api files."
 	author = "Katie Frogs"
 	
@@ -11,9 +11,6 @@ export default class Plugin extends Patch{
 			}),
 			new EditFunction(Account.prototype, "openPrivacy").load(str => {
 				return plugins.insertAfter(str, 'open("privacy', `.txt`)
-			}),
-			new EditValue(p2, "open").load(() => {
-				return () => {}
 			}),
 			new EditFunction(Tutorial.prototype, "init").load(str => {
 				return plugins.insertAfter(str,
@@ -42,7 +39,16 @@ export default class Plugin extends Patch{
 				return plugins.insertBefore(str,
 				`pageEvents.remove(this.formButton, ["mousedown", "touchstart"])
 				`, 'assets.sounds["bgm_setsume"].stop()')
+			}),
+			new EditFunction(SongSelect.prototype, "toOptions").load(str => {
+				return plugins.strReplace(str, 'p2.socket &&', `!p2.socket ||`)
 			})
 		)
+	}
+	start(){
+		p2.disable()
+	}
+	stop(){
+		p2.enable()
 	}
 }
