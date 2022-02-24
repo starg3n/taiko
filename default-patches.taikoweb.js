@@ -27,7 +27,8 @@ export default class Plugin extends Patch{
 				this.formButton.appendChild(link)
 				leftButtons.appendChild(this.formButton)
 				this.endButton.parentNode.insertBefore(leftButtons, this.endButton)
-				this.items.push(this.formButton)`)
+				this.items.push(this.formButton)
+				pageEvents.add(this.formButton, ["click", "touchend"], this.linkButton.bind(this))`)
 			}),
 			new EditFunction(Tutorial.prototype, "setStrings").load(str => {
 				return plugins.insertBefore(str,
@@ -37,7 +38,7 @@ export default class Plugin extends Patch{
 			}),
 			new EditFunction(Tutorial.prototype, "clean").load(str => {
 				return plugins.insertBefore(str,
-				`pageEvents.remove(this.formButton, ["mousedown", "touchstart"])
+				`pageEvents.remove(this.formButton, ["click", "touchend"])
 				`, 'assets.sounds["bgm_setsume"].stop()')
 			}),
 			new EditFunction(SongSelect.prototype, "toOptions").load(str => {
