@@ -47,6 +47,9 @@ export default class Plugin extends Patch{
 		this.addEdits(
 			new EditValue(allStrings.ja, "ese").load(() => "エヴリ・ソング・エヴァー"),
 			new EditValue(allStrings.en, "ese").load(() => "Every Song Ever"),
+			new EditValue(allStrings.cn, "ese").load(() => "Every Song Ever"),
+			new EditValue(allStrings.tw, "ese").load(() => "Every Song Ever"),
+			new EditValue(allStrings.ko, "ese").load(() => "Every Song Ever"),
 
 			new EditFunction(SongSelect.prototype, "init").load(str => {
 				str = plugins.insertBefore(str,
