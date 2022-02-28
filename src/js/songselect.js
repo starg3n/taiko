@@ -90,21 +90,28 @@ class SongSelect{
 			}
 		}
 		this.songSkin["default"].sort = songSkinLength + 1
-
+		
+		this.searchStyle = document.createElement("style")
+		var searchCss = []
 		Object.keys(this.songSkin).forEach(key => {
 			var skin = this.songSkin[key]
 			var stripped = key.replace(/\W/g, '')
-
-			document.styleSheets[0].insertRule('.song-search-' + stripped + ' { background-color: ' + skin.background + ' }')
-			document.styleSheets[0].insertRule('.song-search-' + stripped + '::before { border: 0.4em solid ' + skin.border[0] + ' ; border-bottom-color: ' + skin.border[1] + ' ; border-right-color: ' + skin.border[1] + ' }')
-			document.styleSheets[0].insertRule('.song-search-' + stripped + ' .song-search-result-title::before { -webkit-text-stroke: 0.4em ' + skin.outline + ' }')
-			document.styleSheets[0].insertRule('.song-search-' + stripped + ' .song-search-result-subtitle::before { -webkit-text-stroke: 0.4em ' + skin.outline + ' }')
+			
+			searchCss.push('.song-search-' + stripped + ' { background-color: ' + skin.background + ' }')
+			searchCss.push('.song-search-' + stripped + '::before { border: 0.4em solid ' + skin.border[0] + ' ; border-bottom-color: ' + skin.border[1] + ' ; border-right-color: ' + skin.border[1] + ' }')
+			searchCss.push('.song-search-' + stripped + ' .song-search-result-title::before { -webkit-text-stroke: 0.4em ' + skin.outline + ' }')
+			searchCss.push('.song-search-' + stripped + ' .song-search-result-subtitle::before { -webkit-text-stroke: 0.4em ' + skin.outline + ' }')
 		})
+		this.searchStyle.appendChild(document.createTextNode(searchCss.join("\n")))
+		loader.screen.appendChild(this.searchStyle)
 
 		this.font = strings.font
 		
 		this.songs = []
 		for(let song of assets.songs){
+			var title = this.getLocalTitle(song.title, song.title_lang)
+			song.titlePrepared = fuzzysort.prepare(title)
+			song.subtitlePrepared = fuzzysort.prepare(this.getLocalTitle(title === song.title ? song.subtitle : "", song.subtitle_lang))
 			this.songs.push(this.addSong(song))
 		}
 		this.songs.sort((a, b) => {
@@ -769,7 +776,7 @@ class SongSelect{
 				if(fromP2 && fromP2.player !== p2.player){
 					this.drawBackground(currentSong.originalCategory)	
 				}
-
+				var prevScreen = this.state.screen
 				this.state.screen = "difficulty"
 				this.state.screenMS = this.getMS()
 				this.state.locked = true
@@ -781,7 +788,7 @@ class SongSelect{
 				
 				this.playSound("se_don", 0, fromP2 ? fromP2.player : false)
 				assets.sounds["v_songsel"].stop()
-				if(!this.showWarning){
+				if(!this.showWarning && prevScreen !== "difficulty"){
 					this.playSound("v_diffsel", 0.3)
 				}
 				pageEvents.send("song-select-difficulty", currentSong)
@@ -1081,6 +1088,10 @@ class SongSelect{
 			}
 			
 			this.selectableText = ""
+			
+			if(this.search && this.searchContainer){
+				this.searchInput()
+			}
 		}else if(!document.hasFocus() && !p2.session){
 			if(this.state.focused){
 				this.state.focused = false
@@ -2694,7 +2705,8 @@ class SongSelect{
 		return addedSong
 	}
 
-	createSearchResult(song, resultsDiv, resultWidth){
+	createSearchResult(result, resultWidth, fontSize){
+		var song = result.obj
 		var title = this.getLocalTitle(song.title, song.title_lang)
 		var subtitle = this.getLocalTitle(title === song.title ? song.subtitle : "", song.subtitle_lang)
 
@@ -2712,14 +2724,20 @@ class SongSelect{
 		resultInfoDiv.classList.add("song-search-result-info")
 		var resultInfoTitle = document.createElement("span")
 		resultInfoTitle.classList.add("song-search-result-title")
-		this.setAltText(resultInfoTitle, title)
+		
+		resultInfoTitle.appendChild(this.highlightResult(title, result[0]))
+		resultInfoTitle.setAttribute("alt", title)
+		
 		resultInfoDiv.appendChild(resultInfoTitle)
 
 		if(subtitle){
 			resultInfoDiv.appendChild(document.createElement("br"))
 			var resultInfoSubtitle = document.createElement("span")
 			resultInfoSubtitle.classList.add("song-search-result-subtitle")
-			this.setAltText(resultInfoSubtitle, subtitle)
+			
+			resultInfoSubtitle.appendChild(this.highlightResult(subtitle, result[1]))
+			resultInfoSubtitle.setAttribute("alt", subtitle)
+			
 			resultInfoDiv.appendChild(resultInfoSubtitle)
 		}
 
@@ -2751,29 +2769,42 @@ class SongSelect{
 			resultDiv.appendChild(courseDiv)
 		})
 
-		resultsDiv.appendChild(resultDiv)
-		
-		if(typeof resultWidth === "undefined"){
-			var computedStyle = getComputedStyle(resultInfoDiv)
-			var padding = parseFloat(computedStyle.paddingLeft.slice(0, -2)) + parseFloat(computedStyle.paddingRight.slice(0, -2))
-			resultWidth = resultInfoDiv.offsetWidth - padding
-		}
-		
-		var titleRatio = resultWidth / resultInfoTitle.offsetWidth
+		this.ctx.font = (1.2 * fontSize) + "px " + strings.font
+		var titleWidth = this.ctx.measureText(title).width
+		var titleRatio = resultWidth / titleWidth
 		if(titleRatio < 1){
 			resultInfoTitle.style.transform = "scale(" + titleRatio + ", 1)"
 		}
 		if(subtitle){
-			var subtitleRatio = resultWidth / resultInfoSubtitle.offsetWidth
+			this.ctx.font =  (0.8 * 1.2 * fontSize) + "px " + strings.font
+			var subtitleWidth = this.ctx.measureText(subtitle).width
+			var subtitleRatio = resultWidth / subtitleWidth
 			if(subtitleRatio < 1){
 				resultInfoSubtitle.style.transform = "scale(" + subtitleRatio + ", 1)"
 			}
 		}
 		
-		return {
-			div: resultDiv,
-			width: resultWidth
+		return resultDiv
+	}
+	
+	highlightResult(text, result){
+		var fragment = document.createDocumentFragment()
+		var ranges = (result ? result.ranges : null) || []
+		var lastIdx = 0
+		ranges.forEach(range => {
+			if(lastIdx !== range[0]){
+				fragment.appendChild(document.createTextNode(text.slice(lastIdx, range[0])))
+			}
+			var span = document.createElement("span")
+			span.classList.add("highlighted-text")
+			span.innerText = text.slice(range[0], range[1] + 1)
+			fragment.appendChild(span)
+			lastIdx = range[1] + 1
+		})
+		if(text.length !== lastIdx){
+			fragment.appendChild(document.createTextNode(text.slice(lastIdx)))
 		}
+		return fragment
 	}
 
 	searchSetActive(idx){
@@ -2892,9 +2923,12 @@ class SongSelect{
 	parseRange(string){
 		var range = string.split("-")
 		if(range.length == 1){
-			return {min: parseInt(range[0]), max: parseInt(range[0])}
+			var min = parseInt(range[0]) || 0
+			return min > 0 ? {min: min, max: min} : false
 		} else if(range.length == 2){
-			return {min: parseInt(range[0]), max: parseInt(range[1])}
+			var min = parseInt(range[0]) || 0
+			var max = parseInt(range[1]) || 0
+			return min > 0 && max > 0 ? {min: min, max: max} : false
 		}
 	}
 
@@ -2914,10 +2948,12 @@ class SongSelect{
 						case "hard":
 						case "oni":
 						case "ura":
-							filters[parts[0]] = this.parseRange(parts[1])
+							var range = this.parseRange(parts[1])
+							if (range) { filters[parts[0]] = range }
 							break
 						case "extreme":
-							filters.oni = this.parseRange(parts[1])
+							var range = this.parseRange(parts[1])
+							if (range) { filters.oni = this.parseRange(parts[1]) }
 							break
 						case "clear":
 						case "silver":
@@ -2938,22 +2974,9 @@ class SongSelect{
 
 		query = editedSplit.join(" ").trim()
 
-		var songs = assets.songs
-		// TODO: fix this so it doesn't suck
-		songs.sort((a, b) => {
-			var aScore = 0
-			var bScore = 0
-			var aTitle = a.title.replace(query, "").length
-			var bTitle = b.title.replace(query, "").length
-			var aLength = aTitle - query.length
-			var bLength = bTitle - query.length
-			aScore += aLength - bLength
-			bScore += bLength - aLength
-
-			return aScore - bScore
-		})
-
-		assets.songs.forEach(song => {
+		var totalFilters = Object.keys(filters).length
+		for(var i = 0; i < assets.songs.length; i++){
+			var song = assets.songs[i]
 			var passedFilters = 0
 
 			Object.keys(filters).forEach(filter => {
@@ -3002,7 +3025,7 @@ class SongSelect{
 						}
 						break
 					case "maker":
-						if(song.maker && song.maker.toLowerCase().includes(value.toLowerCase())){
+						if(song.maker && song.maker.name.toLowerCase().includes(value.toLowerCase())){
 							passedFilters++
 						}
 						break
@@ -3018,22 +3041,99 @@ class SongSelect{
 				}
 			})
 
-			if(passedFilters === Object.keys(filters).length){
-				var title = this.getLocalTitle(song.title, song.title_lang)
-				var subtitle = this.getLocalTitle(title === song.title ? song.subtitle : "", song.subtitle_lang)
-		
-				if(title.toLowerCase().includes(query) || (subtitle && subtitle.toLowerCase().includes(query))){
-					results.push(song)
-				}
+			if(passedFilters === totalFilters){
+				results.push(song)
 			}
-		})
+		}
 
-		results = results.slice(0, 50)
+		var maxResults = totalFilters > 0 && !query ? 100 : 50
+
+		if(query){
+			results = fuzzysort.go(query, results, {
+				keys: ["titlePrepared", "subtitlePrepared"],
+				allowTypo: true,
+				limit: maxResults,
+				scoreFn: a => {
+					if(a[0]){
+						var score0 = a[0].score
+						a[0].ranges = this.indexesToRanges(a[0].indexes)
+						if(a[0].indexes.length > 1){
+							var rangeAmount = a[0].ranges.length
+							var lastIdx = -3
+							a[0].ranges.forEach(range => {
+								if(range[0] - lastIdx <= 2){
+									rangeAmount--
+									score0 -= 1000
+								}
+								lastIdx = range[1]
+							})
+							var index = a[0].target.indexOf(query)
+							if(index !== -1){
+								a[0].ranges = [[index, index + query.length - 1]]
+							}else if(rangeAmount > a[0].indexes.length / 2){
+								score0 = -Infinity
+								a[0].ranges = null
+							}else if(rangeAmount !== 1){
+								score0 -= 9000
+							}
+						}
+					}
+					if(a[1]){
+						var score1 = a[1].score - 1000
+						a[1].ranges = this.indexesToRanges(a[1].indexes)
+						if(a[1].indexes.length > 1){
+							var rangeAmount = a[1].ranges.length
+							var lastIdx = -3
+							a[1].ranges.forEach(range => {
+								if(range[0] - lastIdx <= 2){
+									rangeAmount--
+									score1 -= 1000
+								}
+								lastIdx = range[1]
+							})
+							var index = a[1].target.indexOf(query)
+							if(index !== -1){
+								a[1].ranges = [[index, index + query.length - 1]]
+							}else if(rangeAmount > a[1].indexes.length / 2){
+								score1 = -Infinity
+								a[1].ranges = null
+							}else if(rangeAmount !== 1){
+								score1 -= 9000
+							}
+						}
+					}
+					if(a[0]){
+						return a[1] ? Math.max(score0, score1) : score0
+					}else{
+						return a[1] ? score1 : -Infinity
+					}
+				}
+			})
+		}else{
+			results = results.map(result => {
+				return {obj: result}
+			}).slice(0, maxResults)
+		}
+
 		return results
 	}
+	
+	indexesToRanges(indexes){
+		var ranges = []
+		var range
+		indexes.forEach(idx => {
+			if(range && range[1] === idx - 1){
+				range[1] = idx
+			}else{
+				range = [idx, idx]
+				ranges.push(range)
+			}
+		})
+		return ranges
+	}
 
-	searchInput(e){
-		var text = e.target.value.toLowerCase()
+	searchInput(){
+		var text = this.search.input.value.toLowerCase()
 		localStorage.setItem("lastSearchQuery", text)
 
 		if(text.length === 0){
@@ -3051,15 +3151,27 @@ class SongSelect{
 			delete this.search.tip
 		}
 
-		var resultsDiv = this.search.div.querySelector("#song-search-results")
+		var resultsDiv = this.search.div.querySelector(":scope #song-search-results")
 		resultsDiv.innerHTML = ""
 		this.search.results = []
-		var resultWidth
-		new_results.forEach(song => {
-			var result = this.createSearchResult(song, resultsDiv, resultWidth)
-			resultWidth = result.width
-			this.search.results.push(result.div)
+		
+		var fontSize = parseFloat(getComputedStyle(this.search.div.querySelector(":scope #song-search")).fontSize.slice(0, -2))
+		var resultsWidth = parseFloat(getComputedStyle(resultsDiv).width.slice(0, -2))
+		var vmin = Math.min(innerWidth, lastHeight) / 100
+		var courseWidth = Math.min(3 * fontSize * 1.2, 7 * vmin)
+		var resultWidth = resultsWidth - 1.8 * fontSize - 0.8 * fontSize - (courseWidth + 0.4 * fontSize * 1.2) * 5 - 0.6 * fontSize
+		
+		this.ctx.save()
+		
+		var fragment = document.createDocumentFragment()
+		new_results.forEach(result => {
+			var result = this.createSearchResult(result, resultWidth, fontSize)
+			fragment.appendChild(result)
+			this.search.results.push(result)
 		})
+		resultsDiv.appendChild(fragment)
+		
+		this.ctx.restore()
 	}
 
 	searchClick(e){
@@ -3258,9 +3370,11 @@ class SongSelect{
 			pageEvents.remove(this.touchFullBtn, "click")
 			delete this.touchFullBtn
 		}
+		loader.screen.removeChild(this.searchStyle)
 		delete this.selectable
 		delete this.ctx
 		delete this.canvas
 		delete this.searchContainer
+		delete this.searchStyle
 	}
 }
