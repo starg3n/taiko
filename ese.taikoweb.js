@@ -1,6 +1,6 @@
 export default class Plugin extends Patch{
 	name = "ESE"
-	version = "22.02.28"
+	version = "22.03.01"
 	author = "Bui"
 
 	loadEseSongs(){
@@ -13,7 +13,7 @@ export default class Plugin extends Patch{
 
 		var image = document.createElement("img")
 		image.id = "bg_genre_kids.png"
-		image.src = "https://taiko.uk/taiko/assets-201202-p1/img/bg_genre_kids.png"
+		image.src = "https://s2.taiko.uk/assets_201202/img/bg_genre_kids.png"
 		loader.assetsDiv.appendChild(image)
 		assets.image["bg_genre_kids"] = image
 		this.bg_genre_kids = image
