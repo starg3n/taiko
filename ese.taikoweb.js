@@ -42,7 +42,13 @@ export default class Plugin extends Patch{
 				var directory = "https://s2.taiko.uk/ese_220228/" + song.id + "/"
 				song.music = new RemoteFile(directory + "main.ogg")
 				song.chart = new RemoteFile(directory + "main.tja")
-				if(song.preview > 0){
+				if(song.title === "Nesin Amatias"){
+					song.preview = 0
+					song.previewMusic = new RemoteFile("https://s2.taiko.uk/etc/preview_tor.ogg")
+				}else if(song.title === "Shin Zombie"){
+					song.preview = 0
+					song.previewMusic = new RemoteFile("https://s2.taiko.uk/etc/preview_glyzmb.ogg")
+				}else if(song.preview > 0){
 					song.previewMusic = new RemoteFile(directory + "preview.ogg")
 				}
 
