@@ -62,11 +62,14 @@ export default class Plugin extends Patch{
 			new EditValue(CustomSongs.prototype, "getLink").load(() => this.getLink),
 			new EditValue(CustomSongs.prototype, "linkButton").load(() => this.linkButton),
 			new EditFunction(CustomSongs.prototype, "keyPressed").load(str => {
-				return plugins.insertBefore(str,
+				str = plugins.insertBefore(str,
 				`}else if(selected === this.formButton){
 					this.getLink(selected).click()
 					assets.sounds["se_don"].play()
 				`, '}else if(selected === this.linkPrivacy){')
+				return plugins.strReplace(str,
+				'this.items[this.selected] === this.linkPrivacy',
+				`(this.items[this.selected] === this.linkPrivacy || this.items[this.selected] === this.formButton)`)
 			}),
 			new EditFunction(CustomSongs.prototype, "clean").load(str => {
 				return plugins.insertBefore(str,
