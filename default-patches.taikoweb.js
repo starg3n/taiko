@@ -1,6 +1,6 @@
 export default class Plugin extends Patch{
 	name = "Default patches"
-	version = "22.02.23"
+	version = "22.03.03"
 	description = "Opens the correct privacy file. Suppresses multiplayer errors. Adds an Application Form button to the tutorial. Does not include the custom code in loader.js, which uses correct paths for api files."
 	author = "Katie Frogs"
 	
@@ -39,12 +39,40 @@ export default class Plugin extends Patch{
 			new EditFunction(Tutorial.prototype, "clean").load(str => {
 				return plugins.insertBefore(str,
 				`pageEvents.remove(this.formButton, ["click", "touchend"])
+				delete this.formButton
 				`, 'assets.sounds["bgm_setsume"].stop()')
 			}),
+			new EditFunction(CustomSongs.prototype, "init").load(str => {
+				return plugins.insertBefore(str,
+				`var leftButtons = this.getElement("left-buttons")
+				
+				this.formButton = document.createElement("div")
+				this.formButton.classList.add("taibtn", "stroke-sub", "link-btn")
+				this.getLink(this.formButton).innerText = "Application Form"
+				this.formButton.setAttribute("alt", "Application Form")
+				var link = document.createElement("a")
+				link.target = "_blank"
+				link.href = "https://forms.gle/8YtFaHdGksWcVqvB6"
+				this.formButton.appendChild(link)
+				leftButtons.appendChild(this.formButton)
+				this.items.push(this.formButton)
+				pageEvents.add(this.formButton, ["click", "touchend"], this.linkButton.bind(this))
+				`, 'this.endButton = this.getElement("view-end-button")')
+			}),
+			new EditFunction(CustomSongs.prototype, "clean").load(str => {
+				return plugins.insertBefore(str,
+				`pageEvents.remove(this.formButton, ["click", "touchend"])
+				delete this.formButton
+				`, 'delete this.browse')
+			}),
+			new EditValue(CustomSongs.prototype, "getLink").load(() => this.getLink),
 			new EditFunction(SongSelect.prototype, "toOptions").load(str => {
 				return plugins.strReplace(str, 'p2.socket &&', `!p2.socket ||`)
 			})
 		)
+	}
+	getLink(target){
+		return target.getElementsByTagName("a")[0]
 	}
 	start(){
 		p2.disable()
