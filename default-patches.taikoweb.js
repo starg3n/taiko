@@ -1,7 +1,7 @@
 export default class Plugin extends Patch{
 	name = "Default patches"
 	version = "22.03.03"
-	description = "Opens the correct privacy file. Suppresses multiplayer errors. Adds an Application Form button to the tutorial. Does not include the custom code in loader.js, which uses correct paths for api files."
+	description = "Opens the correct privacy file. Suppresses multiplayer errors. Adds an Application Form button to the tutorial and custom songs menu. Does not include the custom code in loader.js, which uses correct paths for api files."
 	author = "Katie Frogs"
 	
 	load(){
@@ -48,16 +48,25 @@ export default class Plugin extends Patch{
 				
 				this.formButton = document.createElement("div")
 				this.formButton.classList.add("taibtn", "stroke-sub", "link-btn")
-				this.getLink(this.formButton).innerText = "Application Form"
-				this.formButton.setAttribute("alt", "Application Form")
 				var link = document.createElement("a")
 				link.target = "_blank"
 				link.href = "https://forms.gle/8YtFaHdGksWcVqvB6"
+				link.innerText = "Application Form"
+				this.formButton.setAttribute("alt", "Application Form")
 				this.formButton.appendChild(link)
 				leftButtons.appendChild(this.formButton)
 				this.items.push(this.formButton)
 				pageEvents.add(this.formButton, ["click", "touchend"], this.linkButton.bind(this))
 				`, 'this.endButton = this.getElement("view-end-button")')
+			}),
+			new EditValue(CustomSongs.prototype, "getLink").load(() => this.getLink),
+			new EditValue(CustomSongs.prototype, "linkButton").load(() => this.linkButton),
+			new EditFunction(CustomSongs.prototype, "keyPressed").load(str => {
+				return plugins.insertBefore(str,
+				`}else if(selected === this.formButton){
+					this.getLink(selected).click()
+					assets.sounds["se_don"].play()
+				`, '}else if(selected === this.linkPrivacy){')
 			}),
 			new EditFunction(CustomSongs.prototype, "clean").load(str => {
 				return plugins.insertBefore(str,
@@ -65,7 +74,6 @@ export default class Plugin extends Patch{
 				delete this.formButton
 				`, 'delete this.browse')
 			}),
-			new EditValue(CustomSongs.prototype, "getLink").load(() => this.getLink),
 			new EditFunction(SongSelect.prototype, "toOptions").load(str => {
 				return plugins.strReplace(str, 'p2.socket &&', `!p2.socket ||`)
 			})
@@ -73,6 +81,12 @@ export default class Plugin extends Patch{
 	}
 	getLink(target){
 		return target.getElementsByTagName("a")[0]
+	}
+	linkButton(event){
+		if(event.target === event.currentTarget){
+			this.getLink(event.currentTarget).click()
+			assets.sounds["se_don"].play()
+		}
 	}
 	start(){
 		p2.disable()
