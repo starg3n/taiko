@@ -76,9 +76,6 @@ export default class Plugin extends Patch{
 				`pageEvents.remove(this.formButton, ["click", "touchend"])
 				delete this.formButton
 				`, 'delete this.browse')
-			}),
-			new EditFunction(SongSelect.prototype, "toOptions").load(str => {
-				return plugins.strReplace(str, 'p2.socket &&', `!p2.socket ||`)
 			})
 		)
 	}

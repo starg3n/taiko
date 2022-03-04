@@ -17,7 +17,7 @@ sed -i "s/$(jq -r ._version.commit api/config.json)/$(jq -r .commit .data/taiko-
 sed -i "s/$(jq -r ._version.commit_short api/config.json)/$(jq -r .commit_short .data/taiko-web/version.json)/g" index.html
 sed -i "s/$(jq -r ._version.version api/config.json)/$(jq -r .version .data/taiko-web/version.json)/g" index.html
 
-jq -sc '.[0] * {"_version": .[1]}' api/config.json .data/taiko-web/version.json > config.json
+jq -s '.[0] * {"_version": .[1]}' api/config.json .data/taiko-web/version.json > config.json
 mv config.json api/config.json
 
 cat loader-patch.js >> ./src/js/loader.js
