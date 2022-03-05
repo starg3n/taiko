@@ -101,6 +101,11 @@
       "hide": false,
       "start": true,
       "url": "/sotd.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": true,
+      "url": "/disable-judge-scores.taikoweb.js"
     }
   ],
   "preview_type": "mp3",
