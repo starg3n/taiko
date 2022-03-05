@@ -104,7 +104,7 @@
     },
     {
       "hide": false,
-      "start": true,
+      "start": false,
       "url": "/disable-judge-scores.taikoweb.js?2"
     }
   ],
