@@ -8,6 +8,9 @@ export default class Plugin extends Patch{
 		this.addEdits(
 			new EditFunction(CanvasDraw.prototype, "score").load(str => {
 				return ""
+			}),
+			new EditFunction(View.prototype, "refresh").load(str => {
+				return plugins.strReplace(str, 'this.assets.drawAssets("notes")', "")
 			})
 		)
 	}
