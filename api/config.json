@@ -1,12 +1,12 @@
 {
   "_version": {
-    "commit": "d47ac381fd2a3c48659ae58637ef7ddecb228d54",
-    "commit_short": "d47ac38",
+    "commit": "8c8f34f7a31796c97ee23d27a7e6c457d73c02a9",
+    "commit_short": "8c8f34f",
     "url": "https://github.com/bui/taiko-web/",
     "version": "22.03.06"
   },
   "accounts": false,
-  "assets_baseurl": "https://s2.taiko.uk/assets_201202/",
+  "assets_baseurl": "https://taiko.uk/taiko/assets-201202-p1/",
   "custom_js": "",
   "email": null,
   "google_credentials": {
@@ -19,12 +19,12 @@
   "plugins": [
     {
       "hide": false,
-      "start": false,
+      "start": true,
       "url": "/default-patches.taikoweb.js"
     },
     {
       "hide": false,
-      "start": false,
+      "start": true,
       "url": "/plugins/offline-account.taikoweb.js"
     },
     {
@@ -74,7 +74,7 @@
     },
     {
       "hide": false,
-      "start": false,
+      "start": true,
       "url": "/plugins/language-es-419.taikoweb.js"
     },
     {
@@ -94,12 +94,12 @@
     },
     {
       "hide": false,
-      "start": false,
+      "start": true,
       "url": "/ese.taikoweb.js"
     },
     {
       "hide": false,
-      "start": false,
+      "start": true,
       "url": "/sotd.taikoweb.js"
     },
     {

@@ -28,6 +28,9 @@ export default class Plugin extends Patch{
             song = JSON.parse(song)
             song.music = new RemoteFile("https://s2.taiko.uk/sotd/sotd.ogg?v="+ts)
             song.chart = new RemoteFile("https://s2.taiko.uk/sotd/sotd.tja?v="+ts)
+            if(song.category=="VOCALOID Music"){
+                song.category="VOCALOID™ Music"
+            }
             subs.forEach(sub => {
                 song.title = song.title.replaceAll(sub[0], sub[1])
                 if(song.subtitle) song.subtitle = song.subtitle.replaceAll(sub[0], sub[1])
