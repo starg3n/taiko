@@ -36,16 +36,16 @@ export default class Plugin extends Patch{
 			["☄", "☆彡"]
 		]
 
-		promises.push(loader.ajax("https://s2.taiko.uk/ese_220228/musicinfo.json").then(songs => {
+		promises.push(loader.ajax("https://s2.taiko.uk/ese_220306/musicinfo.json?2").then(songs => {
 			songs = JSON.parse(songs)
 			songs.forEach(song => {
-				var directory = "https://s2.taiko.uk/ese_220228/" + song.id + "/"
+				var directory = "https://s2.taiko.uk/ese_220306/" + song.id + "/"
 				song.music = new RemoteFile(directory + "main.ogg")
 				song.chart = new RemoteFile(directory + "main.tja")
 				if(song.title === "Nesin Amatias"){
 					song.preview = 0
 					song.previewMusic = new RemoteFile("https://s2.taiko.uk/etc/preview_tor.ogg")
-				}else if(song.title === "Shin Zombie"){
+				}else if(song.title === "シン・ゾンビ"){
 					song.preview = 0
 					song.previewMusic = new RemoteFile("https://s2.taiko.uk/etc/preview_glyzmb.ogg")
 				}else if(song.preview > 0){
@@ -117,6 +117,29 @@ export default class Plugin extends Patch{
 				str = plugins.strReplace(str,
 				`&& currentSong.action !== "random",`,
 				`&& !(currentSong.action === "random" || currentSong.action === "ese"),`)
+				return str
+			}),
+
+			new EditFunction(SongSelect.prototype, "displaySearch").load(str => {
+				str = plugins.insertBefore(str,
+				`if(["ja", "cn", "tw", "ko"].includes(strings.id)){
+					var bar = this.search.div.querySelector(":scope #song-search-bar")
+					var msg = document.createElement("div")
+					msg.style = \`font-size: 1em;
+					margin-top: 1em;
+					text-align: center;
+					background-repeat: no-repeat;
+					background-position: top;
+					background-size: 10em;
+					background-color: #3228c287;
+					border-radius: 0.5em;
+					padding: 1em;\`
+					msg.innerHTML = '曲タイトルの間違いにお気づきの方は、<a style="color:inherit" target="_blank" href="https://forms.gle/qobeTGmWNusWyWFJ8">こちら</a>までご報告ください！'
+					bar.appendChild(msg)
+				}
+				`,
+				`this.searchContainer =`)
+
 				return str
 			}),
 
