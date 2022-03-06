@@ -1,6 +1,6 @@
 export default class Plugin extends Patch{
 	name = "ESE"
-	version = "22.03.01"
+	version = "22.03.06"
 	author = "Bui"
 
 	loadEseSongs(){
@@ -248,6 +248,16 @@ export default class Plugin extends Patch{
 			}),
 
 			new EditFunction(Titlescreen.prototype, "goNext").load(str => {
+				str = plugins.insertBefore(str,
+				`if(p2.session && p2.player === 2 && localStorage.getItem('ese') === 'true'){
+					assets.categories = assets.categoriesDefault
+					assets.songs = assets.songsDefault
+					gameConfig.ese = false
+					localStorage.setItem('ese', 'false')
+				}
+				`,
+				`if(p2.session && !fromP2){`)
+
 				str = plugins.insertBefore(str,
 				`if (localStorage.getItem('ese') === 'true') {
 					assets.categories = assets.categories_ese
