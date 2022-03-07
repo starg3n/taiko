@@ -1,6 +1,6 @@
 export default class Plugin extends Patch{
 	name = "ESE"
-	version = "22.03.06"
+	version = "22.03.07"
 	ese_data_version = "220306"
 	author = "Bui"
 
@@ -37,11 +37,15 @@ export default class Plugin extends Patch{
 			["☄", "☆彡"]
 		]
 
+		var removedSongs = assets.songsDefault.filter(song => song.maker === null)
+		
 		// Removes non-creative songs from the server songlist
-		assets.songsDefault = assets.songs.filter(song => song.maker !== null)
-		assets.songs = assets.songsDefault
+		this.addEdits(
+			new EditValue(assets, "songsDefault").load(() => assets.songsDefault.filter(song => song.maker !== null)),
+			new EditValue(assets, "songs").load(() => assets.songsDefault)
+		)
 
-		promises.push(loader.ajax("https://s2.taiko.uk/ese_" + this.ese_data_version + "/musicinfo.json?5").then(songs => {
+		promises.push(loader.ajax("https://s2.taiko.uk/ese_" + this.ese_data_version + "/musicinfo.json?7").then(songs => {
 			songs = JSON.parse(songs)
 			songs.forEach(song => {
 				var directory = "https://s2.taiko.uk/ese_" + this.ese_data_version +"/" + song.id + "/"
@@ -70,6 +74,7 @@ export default class Plugin extends Patch{
 			this.addEdits(
 				new EditValue(assets, "songs_ese").load(() => songs)
 			)
+			this.fixScores(songs, removedSongs)
 			this.log(songs.length + " songs loaded.")
 		}))
 
@@ -309,6 +314,68 @@ export default class Plugin extends Patch{
 		)
 
 		return Promise.all(promises)
+	}
+
+	fixScores(songsEse, removedSongs){
+		var hashMap = {}
+		var fixedTitles = {
+			"Onpu no Uta": "Onpu no Uta -CS4 Version-",
+			"Kuro Vyrn no Tsubasa": "Kuro Vyrn no Tsubasa MANIAC",
+			"GO MY WAY!!": "GO MY WAY!! -765PRO ALLSTARS Version-",
+			"Hibike! Taiko no Tatsujin (Full Ver)": "Hibike! Taiko no Tatsujin -Long Version-",
+			"Haryu": "Dragon of Spring ～Haryu～",
+			"Kirari☆彡 Star☆Twinkle Precure": "Kirari☆彡Star☆Twinkle Pretty Cure",
+			"DOKU LO CANdy♡": "DOQLOCANDY♡",
+			"A Cruel Angel's Thesis": "A Cruel Angel’s Thesis -New Audio-",
+			"Fun-Filled Drum-Filled Taiko Dojo": "Tanoshii Taiko Dojo",
+			"Bad Apple!! feat.nomico": "Bad Apple!!",
+			"Atsumare Taiko Matsuri!": "Atsumare☆Taiko Matsuri!",
+			"Dokidoki Don-chan Sawagi": "Dokidoki☆Don-chan Sawagi",
+			"Kero⑨destiny": "Kero⑨Destiny",
+			"Gigantic O.T.N": "Gigantic O.T.N.",
+			"Caramelldansen": "Caramelldansen (°∀°)",
+			"Plus Danshi": "+♂ -Plus Danshi-",
+			"poxei♦DOON": "poxei♢DOON",
+			"Don't say \"lazy\"": "Don’t say “lazy”",
+		}
+		songsEse.forEach(songEse => {
+			var enEse = songEse.title_lang.en || songEse.title
+			var jaEse = songEse.title_lang.ja || songEse.title
+			removedSongs.forEach(songLocal => {
+				var enLocal = songLocal.title_lang.en || songLocal.title
+				var jaLocal = songLocal.title_lang.ja || songLocal.title
+				if(enLocal in fixedTitles && fixedTitles[enLocal] === enEse || enEse === enLocal || jaEse === jaLocal){
+					this.mergeScore(songEse.hash, songLocal.hash)
+				}
+			})
+		})
+	}
+
+	mergeScore(hashEse, hashLocal){
+		var scoreLocal = scoreStorage.get(hashLocal, undefined, true)
+		if(scoreLocal){
+			var save = false
+			var scoreEse = scoreStorage.get(hashEse, undefined, true) || {}
+			for(var i in scoreLocal){
+				if(scoreLocal[i].crown && (!(i in scoreEse) || scoreEse[i].crown !== "gold")){
+					var score = scoreEse[i] || {
+						points: 0,
+						good: 0,
+						ok: 0,
+						bad: 0,
+						maxCombo: 0,
+						drumroll: 0
+					}
+					score.crown = scoreLocal[i].crown
+					scoreEse[i] = score
+					save = true
+				}
+			}
+			if(save){
+				scoreStorage.scores[hashEse] = scoreEse
+				scoreStorage.writeString(hashEse)
+			}
+		}
 	}
 
 	unload(){
