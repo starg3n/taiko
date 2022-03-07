@@ -1,6 +1,7 @@
 export default class Plugin extends Patch{
 	name = "ESE"
 	version = "22.03.06"
+	ese_data_version = "220306"
 	author = "Bui"
 
 	loadEseSongs(){
@@ -18,7 +19,7 @@ export default class Plugin extends Patch{
 		assets.image["bg_genre_kids"] = image
 		this.bg_genre_kids = image
 		promises.push(pageEvents.load(image))
-		
+	
 		var subs = [
 			["⒑", "10"],
 			["⒒", "11"],
@@ -36,10 +37,14 @@ export default class Plugin extends Patch{
 			["☄", "☆彡"]
 		]
 
-		promises.push(loader.ajax("https://s2.taiko.uk/ese_220306/musicinfo.json?2").then(songs => {
+		// Removes non-creative songs from the server songlist
+		assets.songsDefault = assets.songs.filter(song => song.maker !== null)
+		assets.songs = assets.songsDefault
+
+		promises.push(loader.ajax("https://s2.taiko.uk/ese_" + this.ese_data_version + "/musicinfo.json?5").then(songs => {
 			songs = JSON.parse(songs)
 			songs.forEach(song => {
-				var directory = "https://s2.taiko.uk/ese_220306/" + song.id + "/"
+				var directory = "https://s2.taiko.uk/ese_" + this.ese_data_version +"/" + song.id + "/"
 				song.music = new RemoteFile(directory + "main.ogg")
 				song.chart = new RemoteFile(directory + "main.tja")
 				if(song.title === "Nesin Amatias"){
@@ -222,11 +227,11 @@ export default class Plugin extends Patch{
 
 			new EditFunction(Session.prototype, "onEnd").load(str => {
 				str = plugins.insertBefore(str,
-				`if (p2.session && gameConfig.ese) {
-					assets.categories = assets.categoriesDefault
-					assets.songs = assets.songsDefault
-					gameConfig.ese = false
-					localStorage.setItem('ese', 'false')
+				`if (p2.session) {
+					assets.categories = assets.categories_ese
+					assets.songs = assets.songs_ese
+					gameConfig.ese = true
+					localStorage.setItem('ese', 'true')
 				}
 				`, `this.clean()`)
 				return str
@@ -272,23 +277,31 @@ export default class Plugin extends Patch{
 
 			new EditFunction(Titlescreen.prototype, "goNext").load(str => {
 				str = plugins.insertBefore(str,
-				`if(p2.session && p2.player === 2 && localStorage.getItem('ese') === 'true'){
-					assets.categories = assets.categoriesDefault
-					assets.songs = assets.songsDefault
-					gameConfig.ese = false
-					localStorage.setItem('ese', 'false')
+				`if(p2.session && p2.player === 2){
+					assets.categories = assets.categories_ese
+					assets.songs = assets.songs_ese
+					gameConfig.ese = true
 				}
 				`,
 				`if(p2.session && !fromP2){`)
 
 				str = plugins.insertBefore(str,
-				`if (localStorage.getItem('ese') === 'true') {
+				`if (localStorage.getItem('ese') !== 'false') {
 					assets.categories = assets.categories_ese
 					assets.songs = assets.songs_ese
 					gameConfig.ese = true
 				}
 				`,
 				'\n\t\t\t\t\tsetTimeout(() => {')
+
+				str = plugins.insertBefore(str,
+				`if (localStorage.getItem('ese') !== 'false') {
+					assets.categories = assets.categories_ese
+					assets.songs = assets.songs_ese
+					gameConfig.ese = true
+				}
+				`,
+				`new SettingsView`)
 
 				return str
 			}),
