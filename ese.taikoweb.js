@@ -85,11 +85,17 @@ export default class Plugin extends Patch{
 		var promises = this.loadEseSongs()
 
 		this.addEdits(
-			new EditValue(allStrings.ja, "ese").load(() => "エヴリ・ソング・エヴァー"),
-			new EditValue(allStrings.en, "ese").load(() => "Every Song Ever"),
-			new EditValue(allStrings.cn, "ese").load(() => "Every Song Ever"),
-			new EditValue(allStrings.tw, "ese").load(() => "Every Song Ever"),
-			new EditValue(allStrings.ko, "ese").load(() => "Every Song Ever"),
+			new EditValue(allStrings.ja, "ese").load(() => "本家曲リスト"),
+			new EditValue(allStrings.en, "ese").load(() => "Official Song List"),
+			new EditValue(allStrings.cn, "ese").load(() => "官方的曲列表"),
+			new EditValue(allStrings.tw, "ese").load(() => "官方的曲列表"),
+			new EditValue(allStrings.ko, "ese").load(() => "공식적인 노래 목록"),
+
+			new EditValue(allStrings.ja.customSongs, "default").load(() => "創作曲リスト"),
+			new EditValue(allStrings.en.customSongs, "default").load(() => "Creative Song List"),
+			new EditValue(allStrings.cn.customSongs, "default").load(() => "创作曲列表"),
+			new EditValue(allStrings.tw.customSongs, "default").load(() => "创作曲列表"),
+			new EditValue(allStrings.ko.customSongs, "default").load(() => "창작 노래 목록"),
 
 			new EditFunction(SongSelect.prototype, "init").load(str => {
 				str = plugins.insertBefore(str,
@@ -113,7 +119,27 @@ export default class Plugin extends Patch{
 				`"plugins": {`)
 
 				str = plugins.insertAfter(str,
-				`if(showCustom`, ` && !gameConfig.ese`)
+				`if(showCustom`, ` `)
+				return str
+			}),
+
+			new EditFunction(SongSelect.prototype, "toCustomSongs").load(str => {
+				str = plugins.insertBefore(str,
+				`assets.categories = assets.categoriesDefault
+				`,
+				`delete assets.otherFiles`)
+			
+				return str
+			}),
+
+			new EditFunction(CustomSongs.prototype, "songsLoaded").load(str => {
+				str = plugins.insertAfter(str,
+				`this.clean()`,
+				`
+				if(gameConfig.ese){
+					gameConfig.ese = false
+					localStorage.setItem('ese', 'false')
+				}`)
 				return str
 			}),
 
