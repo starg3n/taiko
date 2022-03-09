@@ -94,16 +94,6 @@
     },
     {
       "hide": false,
-      "start": true,
-      "url": "/ese.taikoweb.js"
-    },
-    {
-      "hide": false,
-      "start": true,
-      "url": "/sotd.taikoweb.js"
-    },
-    {
-      "hide": false,
       "start": false,
       "url": "/disable-judge-scores.taikoweb.js?2"
     }
