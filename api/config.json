@@ -55,6 +55,11 @@
     {
       "hide": false,
       "start": false,
+      "url": "/plugins/disable-animations.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
       "url": "/plugins/display-game-cache.taikoweb.js"
     },
     {
@@ -95,7 +100,7 @@
     {
       "hide": false,
       "start": false,
-      "url": "/disable-judge-scores.taikoweb.js?2"
+      "url": "/disable-judge-scores.taikoweb.js"
     }
   ],
   "preview_type": "mp3",
