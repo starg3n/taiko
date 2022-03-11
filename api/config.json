@@ -84,6 +84,11 @@
     },
     {
       "hide": false,
+      "start": true,
+      "url": "/plugins/language-fr.taikoweb.js"
+    },
+    {
+      "hide": false,
       "start": false,
       "url": "/plugins/millisecond-accuracy.taikoweb.js"
     },
