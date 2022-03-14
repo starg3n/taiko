@@ -1,6 +1,6 @@
 export default class Plugin extends Patch{
 	name = "Default patches"
-	version = "22.03.03"
+	version = "22.03.14"
 	description = "Opens the correct privacy file. Suppresses multiplayer errors. Adds an Application Form button to the tutorial and custom songs menu. Does not include the custom code in loader.js, which uses correct paths for api files."
 	author = "Katie Frogs"
 	
@@ -23,7 +23,7 @@ export default class Plugin extends Patch{
 				this.formButton.classList.add("taibtn", "stroke-sub", "link-btn")
 				var link = document.createElement("a")
 				link.target = "_blank"
-				link.href = "https://forms.gle/8YtFaHdGksWcVqvB6"
+				link.href = "https://docs.google.com/forms/d/e/1FAIpQLSe1DJTu93aYuHBWNQ0VG63p3EbSkcwsxZ_vmM4urRjosM2DCg/viewform"
 				this.formButton.appendChild(link)
 				leftButtons.appendChild(this.formButton)
 				this.endButton.parentNode.insertBefore(leftButtons, this.endButton)
@@ -50,7 +50,7 @@ export default class Plugin extends Patch{
 				this.formButton.classList.add("taibtn", "stroke-sub", "link-btn")
 				var link = document.createElement("a")
 				link.target = "_blank"
-				link.href = "https://forms.gle/8YtFaHdGksWcVqvB6"
+				link.href = "https://docs.google.com/forms/d/e/1FAIpQLSe1DJTu93aYuHBWNQ0VG63p3EbSkcwsxZ_vmM4urRjosM2DCg/viewform"
 				link.innerText = "Application Form"
 				this.formButton.setAttribute("alt", "Application Form")
 				this.formButton.appendChild(link)
