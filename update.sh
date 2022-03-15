@@ -7,8 +7,7 @@ then
 	git clone https://github.com/bui/taiko-web
 fi
 cd taiko-web
-#git checkout master
-git checkout gpicker-api-changes
+git checkout master
 git pull
 tools/get_version.sh
 cd ../..
