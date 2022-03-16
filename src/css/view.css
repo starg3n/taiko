@@ -463,7 +463,7 @@ kbd{
 	right: -0.1em;
 	bottom: -0.1em;
 	border-radius: 0.5em;
-	opacity: 1;
+	opacity: 0;
 	cursor: pointer;
 }
 #plugin-browse::-webkit-file-upload-button{
