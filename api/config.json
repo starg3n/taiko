@@ -6,7 +6,7 @@
     "version": "22.03.16"
   },
   "accounts": false,
-  "assets_baseurl": "https://taiko.uk/taiko/assets-201202-p1/",
+  "assets_baseurl": "https://s2.taiko.uk/assets_220316/",
   "custom_js": "",
   "email": null,
   "google_credentials": {
