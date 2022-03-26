@@ -32,6 +32,18 @@ class Search{
 		this.style.appendChild(document.createTextNode(css.join("\n")))
 		loader.screen.appendChild(this.style)
 	}
+
+	normalizeString(string){
+		string = string
+			.replace('’', '\'').replace('“', '"').replace('”', '"')
+			.replace('。', '.').replace('，', ',').replace('、', ',')
+
+		kanaPairs.forEach(pair => {
+			string = string.replace(pair[1], pair[0])
+		})
+
+		return string.normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
+	}
 	
 	perform(query){
 		var results = []
@@ -79,7 +91,7 @@ class Search{
 			}
 		})
 		
-		query = editedSplit.join(" ").trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+		query = this.normalizeString(editedSplit.join(" ").trim())
 		
 		var totalFilters = Object.keys(filters).length
 		var random = false
@@ -575,7 +587,7 @@ class Search{
 		}
 	}
 	
-	keyPress(pressed, name, event, repeat){
+	keyPress(pressed, name, event, repeat, ctrl){
 		if(name === "back" || (event && event.keyCode && event.keyCode === 70 && ctrl)) {
 			this.remove(true)
 			if(event){

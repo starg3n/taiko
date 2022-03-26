@@ -1,9 +1,9 @@
 {
   "_version": {
-    "commit": "81464df356c02f71a8fe29ff91642164628a1c75",
-    "commit_short": "81464df",
+    "commit": "053f663cbeb5a4a12e99264cd86729f11fb82a06",
+    "commit_short": "053f663",
     "url": "https://github.com/bui/taiko-web/",
-    "version": "22.03.16"
+    "version": "22.03.24"
   },
   "accounts": false,
   "assets_baseurl": "https://s2.taiko.uk/assets_220316/",
@@ -24,23 +24,8 @@
     },
     {
       "hide": false,
-      "start": true,
-      "url": "/plugins/offline-account.taikoweb.js"
-    },
-    {
-      "hide": false,
-      "start": false,
-      "url": "/plugins/big-ok.taikoweb.js"
-    },
-    {
-      "hide": false,
       "start": false,
       "url": "/plugins/change-music-speed.taikoweb.js"
-    },
-    {
-      "hide": false,
-      "start": false,
-      "url": "/plugins/change-song-select-speed.taikoweb.js"
     },
     {
       "hide": false,
@@ -55,12 +40,12 @@
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/disable-animations.taikoweb.js"
+      "url": "/plugins/rainbow-crown.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/display-game-cache.taikoweb.js"
+      "url": "/plugins/change-song-select-speed.taikoweb.js"
     },
     {
       "hide": false,
@@ -69,13 +54,8 @@
     },
     {
       "hide": false,
-      "start": false,
-      "url": "/plugins/example-plugin.taikoweb.js"
-    },
-    {
-      "hide": false,
-      "start": false,
-      "url": "/plugins/green-notes.taikoweb.js"
+      "start": true,
+      "url": "/plugins/offline-account.taikoweb.js"
     },
     {
       "hide": false,
@@ -90,17 +70,42 @@
     {
       "hide": false,
       "start": false,
+      "url": "/plugins/disable-animations.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
+      "url": "/plugins/big-ok.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
+      "url": "/plugins/green-notes.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
       "url": "/plugins/millisecond-accuracy.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/rainbow-crown.taikoweb.js"
+      "url": "/plugins/show-bpm.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/show-bpm.taikoweb.js"
+      "url": "/plugins/display-game-cache.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
+      "url": "/plugins/examples/language-en.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
+      "url": "/plugins/examples/example-plugin.taikoweb.js"
     },
     {
       "hide": false,
