@@ -25,77 +25,77 @@
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/change-music-speed.taikoweb.js"
+      "url": "/plugins/gameplay/change-music-speed.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/change-timing-window.taikoweb.js"
+      "url": "/plugins/gameplay/change-timing-window.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/custom-scroll-speed.taikoweb.js"
+      "url": "/plugins/gameplay/custom-scroll-speed.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/rainbow-crown.taikoweb.js"
+      "url": "/plugins/gameplay/rainbow-crown.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/change-song-select-speed.taikoweb.js"
+      "url": "/plugins/song-select/change-song-select-speed.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/download-chart.taikoweb.js"
+      "url": "/plugins/song-select/download-chart.taikoweb.js"
     },
     {
       "hide": false,
       "start": true,
-      "url": "/plugins/offline-account.taikoweb.js"
+      "url": "/plugins/workarounds/offline-account.taikoweb.js"
     },
     {
       "hide": false,
       "start": true,
-      "url": "/plugins/language-es-419.taikoweb.js"
+      "url": "/plugins/languages/language-es-419.taikoweb.js"
     },
     {
       "hide": false,
       "start": true,
-      "url": "/plugins/language-fr.taikoweb.js"
+      "url": "/plugins/languages/language-fr.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/disable-animations.taikoweb.js"
+      "url": "/plugins/accessibility/disable-animations.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/big-ok.taikoweb.js"
+      "url": "/plugins/for-fun/big-ok.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/green-notes.taikoweb.js"
+      "url": "/plugins/for-fun/green-notes.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/millisecond-accuracy.taikoweb.js"
+      "url": "/plugins/debugging-testing/millisecond-accuracy.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/show-bpm.taikoweb.js"
+      "url": "/plugins/debugging-testing/show-bpm.taikoweb.js"
     },
     {
       "hide": false,
       "start": false,
-      "url": "/plugins/display-game-cache.taikoweb.js"
+      "url": "/plugins/debugging-testing/display-game-cache.taikoweb.js"
     },
     {
       "hide": false,
