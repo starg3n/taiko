@@ -60,6 +60,10 @@ function browserSupport(){
 		"Module import": function(){
 			eval("import('data:text/javascript,')")
 			return true
+		},
+		"Class field declarations": function(){
+			eval("class A{a=1}")
+			return true
 		}
 	}
 	failedTests = []
