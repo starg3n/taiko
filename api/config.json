@@ -1,9 +1,9 @@
 {
   "_version": {
-    "commit": "053f663cbeb5a4a12e99264cd86729f11fb82a06",
-    "commit_short": "053f663",
+    "commit": "c24b121677d3770e8c7d8c704445fa4f1aa9bfc3",
+    "commit_short": "c24b121",
     "url": "https://github.com/bui/taiko-web/",
-    "version": "22.03.24"
+    "version": "22.04.26"
   },
   "accounts": false,
   "assets_baseurl": "https://s2.taiko.uk/assets_220316/",
@@ -76,6 +76,16 @@
       "hide": false,
       "start": false,
       "url": "/plugins/custom-songs/green-notes.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": true,
+      "url": "/plugins/custom-songs/custom-barline-scroll.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": true,
+      "url": "/plugins/custom-songs/loading-background.taikoweb.js"
     },
     {
       "hide": false,
