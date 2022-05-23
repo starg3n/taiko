@@ -45,6 +45,11 @@
     {
       "hide": false,
       "start": false,
+      "url": "/plugins/gameplay/skip-results-in-multiplayer.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
       "url": "/plugins/song-select/change-song-select-speed.taikoweb.js"
     },
     {
