@@ -80,12 +80,17 @@
     {
       "hide": false,
       "start": false,
+      "url": "/plugins/accessibility/dpad-axis-input.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
       "url": "/plugins/custom-songs/green-notes.taikoweb.js"
     },
     {
       "hide": false,
       "start": true,
-      "url": "/plugins/custom-songs/custom-barline-scroll.taikoweb.js"
+      "url": "/plugins/custom-songs/custom-barlines.taikoweb.js"
     },
     {
       "hide": false,
