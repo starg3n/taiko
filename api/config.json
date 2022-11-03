@@ -1,9 +1,9 @@
 {
   "_version": {
-    "commit": "ba1a6ab3068af8d5f8d3c5e81380957493ebf86b",
-    "commit_short": "ba1a6ab",
+    "commit": "c9945209eefe834886bec711196bb080d46df24d",
+    "commit_short": "c994520",
     "url": "https://github.com/bui/taiko-web/",
-    "version": "22.07.16"
+    "version": "22.10.24"
   },
   "accounts": false,
   "assets_baseurl": "https://s2.taiko.uk/assets_220316/",
@@ -116,6 +116,11 @@
       "hide": false,
       "start": false,
       "url": "/plugins/debugging-testing/display-game-cache.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
+      "url": "/plugins/debugging-testing/debug-button.taikoweb.js"
     },
     {
       "hide": false,
