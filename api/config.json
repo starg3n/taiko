@@ -125,6 +125,11 @@
     {
       "hide": false,
       "start": false,
+      "url": "/plugins/debugging-testing/convert-lyrics-to-vtt.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
       "url": "/plugins/examples/language-en.taikoweb.js"
     },
     {
