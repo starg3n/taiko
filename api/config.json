@@ -6,7 +6,7 @@
     "version": "22.11.22"
   },
   "accounts": false,
-  "assets_baseurl": "https://s2.taiko.uk/assets_220316/",
+  "assets_baseurl": "/assets/",
   "custom_js": "",
   "email": null,
   "google_credentials": {
@@ -149,5 +149,5 @@
     }
   ],
   "preview_type": "mp3",
-  "songs_baseurl": "https://taiko.uk/taiko/songs/"
+  "songs_baseurl": "/songs/"
 }
