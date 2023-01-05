@@ -84,6 +84,11 @@
     },
     {
       "hide": false,
+      "start": true,
+      "url": "/plugins/accessibility/backup-and-restore-scores.taikoweb.js"
+    },
+    {
+      "hide": false,
       "start": false,
       "url": "/plugins/accessibility/dpad-axis-input.taikoweb.js"
     },
