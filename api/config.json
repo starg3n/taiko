@@ -55,6 +55,11 @@
     {
       "hide": false,
       "start": false,
+      "url": "/plugins/gameplay/multiplayer-custom-songs.taikoweb.js"
+    },
+    {
+      "hide": false,
+      "start": false,
       "url": "/plugins/song-select/change-song-select-speed.taikoweb.js"
     },
     {
