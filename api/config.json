@@ -84,6 +84,11 @@
     },
     {
       "hide": false,
+      "start": true,
+      "url": "/plugins/languages/language-pl.taikoweb.js"
+    },
+    {
+      "hide": false,
       "start": false,
       "url": "/plugins/accessibility/disable-animations.taikoweb.js"
     },
