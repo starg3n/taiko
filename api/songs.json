@@ -39,19 +39,31 @@
     "maker": null,
     "hash": null
 }, {
-"id": ,
+"id": 2,
     "order": 2,
     "title": "PoPiPo",
     "subtitle": "Hatsune Miku",
     "courses": {
-        "easy": null,
-        "hard": null,
-        "normal": null,
-        "oni": {
-            "stars": 9,
+        "easy": {
+            "stars": 2,
             "branch": false
         },
-        "ura": null
+        "normal": {
+            "stars": 6,
+            "branch": false
+        },
+        "hard": {
+            "stars": 4,
+            "branch": false
+        },
+        "oni": {
+            "stars": 8,
+            "branch": false
+        },
+        "ura": {
+            "stars": 9,
+            "branch": false
+        }
     },
     "preview": 106.7,
     "category_id": 3,
