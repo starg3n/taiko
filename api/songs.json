@@ -5,20 +5,20 @@
 	"subtitle": "Kizuna AI feat. Yasutaka Nakata",
 	"courses": {
 		"easy": {
-			"branch": false,
-			"stars": 3
+			"stars": 3,
+			"branch": false
 		},
 		"hard": {
-			"branch": false,
-			"stars": 3
+			"stars": 3,
+			"branch": false
 		},
 		"normal": {
-			"branch": false,
-			"stars": 4
+			"stars": 4,
+			"branch": false
 		},
 		"oni": {
-			"branch": false,
-			"stars": 7
+			"stars": 7,
+			"branch": false
 		},
 		"ura": null
 	},
@@ -26,18 +26,18 @@
 	"category_id": 1,
 	"category": "Pop",
 	"title_lang": {
-		"cn": null,
-		"en": null,
 		"ja": null,
-		"ko": null,
-		"tw": null
+		"en": null,
+		"cn": null,
+		"tw": null,
+		"ko": null
 	},
 	"subtitle_lang": {
-		"cn": null,
-		"en": null,
 		"ja": null,
-		"ko": null,
-		"tw": null
+		"en": null,
+		"cn": null,
+		"tw": null,
+		"ko": null
 	},
 	"type": "tja",
 	"music_type": "ogg",
