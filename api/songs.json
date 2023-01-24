@@ -1,15 +1,37 @@
 [{
 	"id": 1,
 	"order": 1,
-	"title": "音符のうた",
+	"title": "AIAIAI",
+	"subtitle": "Kizuna AI feat. Yasutaka Nakata",
+	"courses": {
+		"easy": {
+			"branch": false,
+			"stars": 3
+		},
+		"hard": {
+			"branch": false,
+			"stars": 3
+		},
+		"normal": {
+			"branch": false,
+			"stars": 4
+		},
+		"oni": {
+			"branch": false,
+			"stars": 7
+		},
+		"ura": null
+	},
+	"preview": 2.017,
+	"category_id": 1,
+	"category": "Pop",
 	"title_lang": {
 		"cn": null,
-		"en": "Onpu no Uta",
-		"ja": "音符のうた",
+		"en": null,
+		"ja": null,
 		"ko": null,
 		"tw": null
 	},
-	"subtitle": null,
 	"subtitle_lang": {
 		"cn": null,
 		"en": null,
@@ -17,34 +39,12 @@
 		"ko": null,
 		"tw": null
 	},
-	"courses": {
-		"easy": {
-			"branch": false,
-			"stars": 2
-		},
-		"hard": {
-			"branch": false,
-			"stars": 2
-		},
-		"normal": {
-			"branch": false,
-			"stars": 2
-		},
-		"oni": {
-			"branch": false,
-			"stars": 4
-		},
-		"ura": null
-	},
-	"preview": 2.017,
-	"category_id": 1,
-	"category": "Pop",
-	"offset": null,
 	"type": "tja",
-	"music_type": "mp3",
+	"music_type": "ogg",
 	"volume": 1.0,
-	"song_skin": null,
 	"lyrics": false,
+	"offset": null,
+	"song_skin": null,
 	"maker": null,
-	"hash": "L4lyni34uVxcuL91/EzHbg"
+	"hash": null
 }]
