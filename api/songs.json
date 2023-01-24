@@ -1,1 +1,50 @@
-[]
+[{
+	"id": 1,
+	"order": 1,
+	"title": "音符のうた",
+	"title_lang": {
+		"cn": null,
+		"en": "Onpu no Uta",
+		"ja": "音符のうた",
+		"ko": null,
+		"tw": null
+	},
+	"subtitle": null,
+	"subtitle_lang": {
+		"cn": null,
+		"en": null,
+		"ja": null,
+		"ko": null,
+		"tw": null
+	},
+	"courses": {
+		"easy": {
+			"branch": false,
+			"stars": 2
+		},
+		"hard": {
+			"branch": false,
+			"stars": 2
+		},
+		"normal": {
+			"branch": false,
+			"stars": 2
+		},
+		"oni": {
+			"branch": false,
+			"stars": 4
+		},
+		"ura": null
+	},
+	"preview": 2.017,
+	"category_id": 1,
+	"category": "Pop",
+	"offset": null,
+	"type": "tja",
+	"music_type": "mp3",
+	"volume": 1.0,
+	"song_skin": null,
+	"lyrics": false,
+	"maker": null,
+	"hash": "L4lyni34uVxcuL91/EzHbg"
+}]

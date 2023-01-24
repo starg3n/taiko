@@ -11,8 +11,7 @@
 	runStr = runStr.replace(' + "fonts/"', ' + (gameConfig.assets_no_dir ? "" : "fonts/")')
 	runStr = runStr.replaceAll(' + "img/"', ' + (gameConfig.assets_no_dir ? "" : "img/")')
 	runStr = runStr.replace('gameConfig.assets_baseurl + "img/vectors.json"', '(gameConfig.assets_no_dir ? "vectors.json" : gameConfig.assets_baseurl + "img/vectors.json")')
-	runStr = runStr.replace('song.id + "/"', 'song.id + (gameConfig.assets_no_dir ? "" : "/")')
-	runStr = runStr.replace('directory + "main."', 'directory + (gameConfig.assets_no_dir ? "." : "main.")')
+	runStr = runStr.replace('directory + "main." + songExt', '(gameConfig.assets_no_dir ? gameConfig.assets_baseurl + song.id + "." + songExt : directory + "main." + songExt)')
 	Loader.prototype.run = Function(runStr)
 	
 	var soundUrlStr = Loader.prototype.soundUrl.toString()
