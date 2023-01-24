@@ -99,21 +99,64 @@
         "easy":  {
             "stars": 3,
             "branch": false
+        },
         "hard":  {
             "stars": 6,
             "branch": false
+        },
         "normal":  {
             "stars": 5,
             "branch": false
+        },
         "oni": {
             "stars": 8,
             "branch": false
         },
         "ura": null
     },
-    "preview": 106.7,
+    "preview": 43,
     "category_id": 3,
     "category": "VOCALOID™ Music",
+    "title_lang": {
+        "ja": null,
+        "en": null,
+        "cn": null,
+        "tw": null,
+        "ko": null
+    },
+    "subtitle_lang": {
+        "ja": null,
+        "en": null,
+        "cn": null,
+        "tw": null,
+        "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+  }, {
+  "id": 1,
+    "order": 5,
+    "title": "Last Goodbye",
+    "subtitle": "Toby Fox",
+    "courses": {
+        "easy": null,
+        "hard": null,
+        "normal": null,
+        "oni": {
+            "stars": 9,
+            "branch": false
+        },
+        "ura": null
+    },
+    "preview": 2.775,
+    "category_id": 6,
+    "category": "Video Game Series",
     "title_lang": {
         "ja": null,
         "en": null,
