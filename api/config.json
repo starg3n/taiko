@@ -6,7 +6,8 @@
     "version": "22.11.22"
   },
   "accounts": false,
-  "assets_baseurl": "/assets/",
+  "assets_baseurl": "https://cdn.glitch.global/a3e2c166-1d1e-4733-adf4-582e6dc2f601/",
+  "assets_no_dir": true,
   "custom_js": "",
   "email": null,
   "google_credentials": {
