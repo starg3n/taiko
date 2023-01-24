@@ -90,4 +90,50 @@
     "song_skin": null,
     "maker": null,
     "hash": null
+}, {
+  "id": 4,
+    "order": 4,
+    "title": "Deep Sea Girl",
+    "subtitle": "Hatsune Miku",
+    "courses": {
+        "easy":  {
+            "stars": 3,
+            "branch": false
+        "hard":  {
+            "stars": 6,
+            "branch": false
+        "normal":  {
+            "stars": 5,
+            "branch": false
+        "oni": {
+            "stars": 8,
+            "branch": false
+        },
+        "ura": null
+    },
+    "preview": 106.7,
+    "category_id": 3,
+    "category": "VOCALOID™ Music",
+    "title_lang": {
+        "ja": null,
+        "en": null,
+        "cn": null,
+        "tw": null,
+        "ko": null
+    },
+    "subtitle_lang": {
+        "ja": null,
+        "en": null,
+        "cn": null,
+        "tw": null,
+        "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
 }]
