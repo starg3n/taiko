@@ -269,17 +269,28 @@
   {
     "id": 10,
     "order": 10,
-    "title": "Interstella 5555",
-    "subtitle": "Daft Punk",
-    "courses": {
-      "easy": null,
-      "hard": null,
-      "normal": null,
-      "oni": {
-        "stars": 12,
+    "title": "FREEDOM D↓VE",
+    "subtitle": "XI",
+ "courses": {
+      "easy": {
+        "stars": 3,
         "branch": false
       },
-      "ura": null
+      "hard": {
+        "stars": 6,
+        "branch": false
+      },
+      "normal": {
+        "stars": 5,
+        "branch": false
+      },
+      "oni": {
+        "stars": 8,
+        "branch": false
+      },
+      "ura": {
+        "stars": 11,
+        "branch": false
     },
     "preview": 23.432,
     "category_id": 4,
