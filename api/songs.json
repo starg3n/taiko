@@ -182,14 +182,14 @@
   }, {
     "id": 6,
     "order": 6,
-    "title": "Pandora Palace",
-    "subtitle": "Toby Fox",
+    "title": "Super Smash Bros. Brawl Main Theme",
+    "subtitle": "Shogo Sakai/Nobuo Uematsu",
     "courses": {
         "easy": null,
         "hard": null,
         "normal": null,
         "oni": {
-            "stars": 8,
+            "stars": 6,
             "branch": false
         },
         "ura": null
