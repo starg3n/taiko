@@ -325,19 +325,14 @@
     "title": "Good Time",
     "subtitle": "Owl City & Carly Rae Jepsen",
     "courses": {
-      "easy": null
-      },
-      "hard": {
-        "stars": 8,
-        "branch": false
-      },
-      "normal": null
-      },
+      "easy": null,
+      "hard": null,
+      "normal": null,
       "oni": {
         "stars": 10,
         "branch": false
       },
-      "ura": "null"
+      "ura": null
     },
     "preview": 64.9,
     "category_id": 1,
