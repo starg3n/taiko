@@ -415,7 +415,8 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-  }, {
+  },
+  {
     "id": 13,
     "order": 13,
     "title": "Mottai Night Land",
@@ -442,6 +443,56 @@
     "preview": 70.601,
     "category_id": 1,
     "category": "Pop",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+  },
+  {
+    "id": 14,
+    "order": 14,
+    "title": "Deja Vu",
+    "subtitle": "INITIAL D / Dave Rodgers",
+    "courses": {
+      "easy": {
+        "stars": 3,
+        "branch": false
+      },
+      "hard": {
+        "stars": 5,
+        "branch": false
+      },
+      "normal": {
+        "stars": 5,
+        "branch": false
+      },
+      "oni": {
+        "stars": 8,
+        "branch": false
+      },
+      "ura": "null"
+    },
+    "preview": 63.805,
+    "category_id": 2,
+    "category": "Anime",
     "title_lang": {
       "ja": null,
       "en": null,
