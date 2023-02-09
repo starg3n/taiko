@@ -12,7 +12,7 @@
   "email": null,
   "google_credentials": {
     "api_key": "",
-    "gdrive_enabled": false,
+    "gdrive_enabled": true,
     "min_level": null,
     "oauth_client_id": "",
     "project_number": ""
