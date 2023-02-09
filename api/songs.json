@@ -598,7 +598,7 @@
           "id": 18,
     "order": 18,
     "title": "LECIEL GLISSANDO",
-    "subtitle": "",
+    "subtitle": "--Yomii",
     "courses": {
       "easy": {
         "stars": 5,
@@ -616,9 +616,9 @@
         "stars": 10,
         "branch": false
       },
-      "ura": "null"
+      "ura": null
     },
-    "preview": 63.805,
+    "preview": 51.522,
     "category_id": 7,
     "category": "Namco Originals",
     "title_lang": {
@@ -634,5 +634,4 @@
       "cn": null,
       "tw": null,
       "ko": null
-}
-]
+    }]
