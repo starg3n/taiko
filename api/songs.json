@@ -415,7 +415,8 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-  }, {
+  },
+  {
     "id": 13,
     "order": 13,
     "title": "Mottai Night Land",
@@ -514,8 +515,9 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-  }, {
-     "id": 15,
+  },
+  {
+    "id": 15,
     "order": 15,
     "title": "Sky High",
     "subtitle": "Jun Ishikawa",
@@ -529,7 +531,7 @@
       },
       "ura": null
     },
-    "preview": -0.550,
+    "preview": -0.55,
     "category_id": 6,
     "category": "Video Game Series",
     "title_lang": {
@@ -554,8 +556,9 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-  }, {
-         "id": 16,
+  },
+  {
+    "id": 16,
     "order": 16,
     "title": "Brinstar (Melee)",
     "subtitle": "Hirokazu Ando, Shogo Sakai, Tadashi Ikegami, Takuto Kitsuta",
@@ -569,7 +572,7 @@
       },
       "ura": null
     },
-    "preview": -0.070,
+    "preview": -0.07,
     "category_id": 6,
     "category": "Video Game Series",
     "title_lang": {
@@ -594,8 +597,9 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-  }, {
-          "id": 18,
+  },
+  {
+    "id": 18,
     "order": 18,
     "title": "LECIEL GLISSANDO",
     "subtitle": "--Yomii",
@@ -618,7 +622,7 @@
       },
       "ura": null
     },
-    "preview": 51.522,
+    "preview": -4.246,
     "category_id": 7,
     "category": "Namco Originals",
     "title_lang": {
@@ -634,4 +638,14 @@
       "cn": null,
       "tw": null,
       "ko": null
-    }]
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+  }
+]
