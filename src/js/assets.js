@@ -99,7 +99,6 @@ var assets = {
 		"se_pause.ogg",
 		"se_calibration.ogg",
 		
-		"v_results.ogg",
 		"v_sanka.ogg",
 		"v_songsel.ogg",
 		"v_start.ogg",
