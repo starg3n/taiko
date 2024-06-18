@@ -81,7 +81,7 @@ class Scoresheet {
     this.redrawBind = this.redraw.bind(this);
     this.redraw();
 
-    assets.sounds["bgm_result"].playLoop(3, false, 0, 0.694, 23.555);
+    assets.sounds["bgm_result"].playLoop(3, false, 0, 0.712, 16.071);
 
     this.session = p2.session;
     if (this.session) {
