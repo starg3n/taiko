@@ -74,7 +74,6 @@ class Scoresheet{
 		this.redrawBind = this.redraw.bind(this)
 		this.redraw()
 		
-		assets.sounds["v_results"].play()
 		assets.sounds["bgm_result"].playLoop(3, false, 0, 0.700, 31.400)
 		
 		this.session = p2.session
