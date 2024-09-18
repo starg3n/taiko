@@ -45,7 +45,7 @@ var translations = {
 	},
 	titleDisclaimer: {
 		ja: "この非公式シミュレーターはバンダイナムコとは関係がありません。",
-		en: "This unofficial simulator is unaffiliated with BANDAI NAMCO, nor any of their properties or assets. This is purely a non-profit Taiko simulator :D",
+		en: "New songs,
 		cn: "这款非官方模拟器与BANDAI NAMCO无关。",
 		tw: "這款非官方模擬器與 BANDAI NAMCO 無關。",
 		ko: "이 비공식 시뮬레이터는 반다이 남코와 관련이 없습니다."
