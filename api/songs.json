@@ -1176,7 +1176,7 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-    },
+  },
   {
     "id": 30,
     "order": 30,
@@ -1217,7 +1217,7 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-     },
+  },
   {
     "id": 31,
     "order": 31,
@@ -1236,6 +1236,56 @@
     "preview": 84.122,
     "category_id": 8,
     "category": "No",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+    },
+  {
+    "id": 32,
+    "order": 32,
+    "title": "mint tears",
+    "subtitle": "",
+   "courses": {
+      "easy": {
+        "stars": 4,
+        "branch": false
+      },
+      "hard": {
+        "stars": 7,
+        "branch": false
+      },
+      "normal": {
+        "stars": 6,
+        "branch": false
+      },
+      "oni": {
+        "stars": 10,
+        "branch": false
+      },
+      "ura": null
+    },
+    "preview": 26,
+    "category_id": 7,
+    "category": "Namco Originals",
     "title_lang": {
       "ja": null,
       "en": null,
