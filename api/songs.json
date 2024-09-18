@@ -733,16 +733,25 @@
     "title": "Kyun! Vampire Girl -765PRO ALLSTARS Version-",
     "subtitle": "--Tomoko Sasaki feat. 765PRO ALLSTARS/THE",
     "courses": {
-      "easy": null,
-      "hard": null,
-      "normal": null,
+      "easy": {
+        "stars":3,
+        "branch":false
+      },
+      "hard": {
+        "stars":5,
+        "branch":false
+      },
+      "normal": {
+        "stars":4,
+        "branch":false
+      },
       "oni": {
         "stars": 6,
         "branch": false
       },
       "ura": null
     },
-    "preview": 30.530,
+    "preview": 68.930,
     "category_id": 6,
     "category": "Video Game Series",
     "title_lang": {
@@ -767,5 +776,54 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-  }
+}, {
+            "id": 22,
+    "order": 22,
+    "title": "Ace Attorney Trilogy Medley",
+    "subtitle": "--Masakazu Sugimori/Ace Attorney Trilogy",
+    "courses": {
+      "easy": {
+        "stars":3,
+        "branch":false
+      },
+      "hard": {
+        "stars":6,
+        "branch":false
+      },
+      "normal": {
+        "stars":5,
+        "branch":false
+      },
+      "oni": {
+        "stars": 8,
+        "branch": false
+      },
+      "ura": null
+    },
+    "preview": 24.107,
+    "category_id": 6,
+    "category": "Video Game Series",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+   }
 ]
