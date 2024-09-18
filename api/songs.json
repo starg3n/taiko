@@ -879,7 +879,7 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-     },
+  },
   {
     "id": 24,
     "order": 24,
@@ -932,34 +932,37 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-      },
+  },
   {
-    "id": 23,
-    "order": 23,
-    "title": "Yuugen no Ran",
-    "subtitle": "--Tatsh a.k.a. Zeami",
+    "id": 25,
+    "order": 25,
+    "title": "We Are!",
+    "subtitle": "--Hiroshi Katadani/ONE PIECE",
     "courses": {
       "easy": {
-        "stars": 5,
+        "stars": 3,
         "branch": false
       },
       "hard": {
-        "stars": 8,
+        "stars": 5,
         "branch": false
       },
       "normal": {
-        "stars": 7,
+        "stars": 4,
         "branch": false
       },
       "oni": {
-        "stars": 10,
+        "stars": 6,
         "branch": false
       },
-      "ura": null
+      "ura": {
+        "stars": 10,
+        "branch": false
+      }
     },
-    "preview": 1.816,
-    "category_id": 7,
-    "category": "Namco Originals",
+    "preview": 31.514,
+    "category_id": 2,
+    "category": "Anime",
     "title_lang": {
       "ja": null,
       "en": null,
@@ -982,36 +985,33 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-     },
+      },
   {
-    "id": 25,
-    "order": 25,
-    "title": "We Are!",
-    "subtitle": "--Hiroshi Katadani/ONE PIECE",
+    "id": 26,
+    "order": 26,
+    "title": "Korokoro Cocotama!",
+    "subtitle": "--ERIKA/Kamisama Minarai Himitsu no Cocotama",
     "courses": {
       "easy": {
         "stars": 3,
         "branch": false
       },
       "hard": {
-        "stars": 6,
-        "branch": false
-      },
-      "normal": {
         "stars": 5,
         "branch": false
       },
-      "oni": {
-        "stars": 7,
+      "normal": {
+        "stars": 3,
         "branch": false
       },
-      "ura": {
-        "stars": 6,
+      "oni": {
+        "stars": 8,
         "branch": false
-      }
+      },
+      "ura": null
     },
-    "preview": 31.514,
-    "category_id": 3,
+    "preview": 40.620,
+    "category_id": 2,
     "category": "Anime",
     "title_lang": {
       "ja": null,
