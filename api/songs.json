@@ -1308,5 +1308,58 @@
     "song_skin": null,
     "maker": null,
     "hash": null
+      },
+  {
+    "id": 33,
+    "order": 33,
+    "title": "Kissa Rain",
+    "subtitle": "Hiromi Shibano",
+   "courses": {
+      "easy": {
+        "stars": 4,
+        "branch": false
+      },
+      "hard": {
+        "stars": 5,
+        "branch": false
+      },
+      "normal": {
+        "stars": 6,
+        "branch": false
+      },
+      "oni": {
+        "stars": 6,
+        "branch": false
+      },
+      "ura": {
+        "stars": 8,
+        "branch": false
+      }
+    },
+    "preview": 26,
+    "category_id": 7,
+    "category": "Namco Originals",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
   }
 ]
