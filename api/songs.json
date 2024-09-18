@@ -1217,5 +1217,46 @@
     "song_skin": null,
     "maker": null,
     "hash": null
+     },
+  {
+    "id": 31,
+    "order": 31,
+    "title": "2022",
+    "subtitle": "Camellia",
+    "courses": {
+      "easy": null,
+      "hard": null,
+      "normal": null,
+      "oni": {
+        "stars": 10,
+        "branch": false
+      },
+      "ura": null
+    },
+    "preview": 84.122,
+    "category_id": 8,
+    "category": "No",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
   }
 ]

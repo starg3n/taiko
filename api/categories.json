@@ -142,5 +142,25 @@
       "ko": "남코 오리지널",
       "tw": "NAMCO原創音樂"
     }
+  },
+  {
+    "aliases": null,
+    "id": 8,
+    "song_skin": {
+      "background": "#FE2E2E",
+      "bg_img": "bg_genre_6.png",
+      "border": ["#ffa66b", "#b53000"],
+      "info_fill": "#FF0000",
+      "outline": "#B40404",
+      "sort": 8
+    },
+    "title": "No",
+    "title_lang": {
+      "cn": "No",
+      "en": "No",
+      "ja": "いいえ",
+      "ko": "아니요",
+      "tw": "No"
+    }
   }
 ]
