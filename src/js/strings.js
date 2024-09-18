@@ -51,7 +51,7 @@ var translations = {
 		ko: "이 비공식 시뮬레이터는 반다이 남코와 관련이 없습니다."
 	},
 	titleCopyright: {
-		en: "Taiko no Tatsujin ©&™ 2011 BANDAI NAMCO Entertainment Inc."
+		en: ""
 	},
 	selectSong: {
 		ja: "曲をえらぶ",

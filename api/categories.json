@@ -148,8 +148,8 @@
     "id": 8,
     "song_skin": {
       "background": "#FE2E2E",
-      "bg_img": "bg_genre_6.png",
-      "border": ["#ffa66b", "#b53000"],
+      "bg_img": "bg_genre_7.png",
+      "border": ["#8A0808", "#3B0B0B"],
       "info_fill": "#FF0000",
       "outline": "#B40404",
       "sort": 8
