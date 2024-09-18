@@ -225,7 +225,7 @@ var translations = {
 	},
 	loading: {
 		ja: "ロード中...",
-		en: "Loading...",
+		en: "Loading, don-don!...",
 		cn: "加载中...",
 		tw: "讀取中...",
 		ko: "로딩 중..."
@@ -412,7 +412,7 @@ var translations = {
 	},
 	results: {
 		ja: "成績発表",
-		en: "Results",
+		en: "Score",
 		cn: "发表成绩",
 		tw: "發表成績",
 		ko: "성적 발표"
@@ -441,7 +441,7 @@ var translations = {
 	
 	errorOccured: {
 		ja: "エラーが発生しました。再読み込みしてください。",
-		en: "An error occurred, please refresh",
+		en: "Oops! An error has occured. Please refresh the page.",
 		tw: "發生錯誤，請重新載入頁面。",
 		ko: "오류가 발생했습니다. 페이지를 새로 고침하시기 바랍니다."
 	},
@@ -457,7 +457,7 @@ var translations = {
 				"When a note overlaps the frame, that is your cue to hit the drum!",
 				"For red notes, hit the surface of the drum (%s or %s)...",
 				"...and for blue notes, hit the rim! (%s or %s)",
-				"USB controllers are also supported!"
+				"USB controllers and drums are also supported!"
 			],
 			cn: [
 				"当流动的音符将与框框重叠时就用鼓棒敲打太鼓吧",
@@ -561,8 +561,6 @@ var translations = {
 			],
 			en: [
 				"This simulator is still in development.",
-				"Please report any bugs you find.",
-				"You can report bugs either via our Git repository or email."
 			],
 			cn: [
 				"这款模拟器仍处于开发中，",
@@ -582,7 +580,7 @@ var translations = {
 		},
 		diagnosticWarning: {
 			ja: "以下の端末診断情報も併せて報告してください！",
-			en: "Be sure to include the following diagnostic data!",
+			en: "",
 			cn: "请确保您的报告包括以下诊断数据!",
 			tw: "記得附上下方的診斷資料！",
 			ko: "신고하실 때 반드시 다음 진단 정보를 포함해주시기 바랍니다!"
@@ -604,7 +602,7 @@ var translations = {
 	session: {
 		multiplayerSession: {
 			ja: "オンラインセッション",
-			en: "Multiplayer Session",
+			en: "Multiplayer Session (Not Working!)",
 			cn: "在线会话",
 			tw: "多人模式",
 			ko: "멀티플레이어 세션"
@@ -1196,7 +1194,7 @@ var translations = {
 	browserSupport: {
 		browserWarning: {
 			ja: "サポートされていないブラウザを実行しています (%s)",
-			en: "You are running an unsupported browser (%s)",
+			en: "You are running an unsupported browser! Go to Chrome, Brave, Opera GX, or Firefox! (%s)",
 			tw: "您正在使用不支援的瀏覽器 (%s)",
 			ko: "호환되지 않는 브라우저입니다. (%s)"
 		},
@@ -1283,14 +1281,14 @@ var translations = {
 		},
 		gdriveFolder: {
 			ja: "Google ドライブ...",
-			en: "Google Drive...",
+			en: "Google Drive (Not Working!)",
 			cn: "Google云端硬盘...",
 			tw: "Google 雲端硬碟...",
 			ko: "구글 드라이브..."
 		},
 		gdriveAccount: {
 			ja: "アカウントの切り替え",
-			en: "Switch Accounts",
+			en: "Switch Accounts (Not Working!)",
 			cn: "切换帐户",
 			tw: "切換帳戶",
 			ko: "계정 전환"
