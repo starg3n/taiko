@@ -148,7 +148,7 @@
     "id": 8,
     "song_skin": {
       "background": "#FE2E2E",
-      "bg_img": "bg_genre_7.png",
+      "bg_img": "bg_genre_9.png",
       "border": ["#8A0808", "#3B0B0B"],
       "info_fill": "#FF0000",
       "outline": "#B40404",
@@ -167,9 +167,9 @@
     "aliases": null,
     "id": 9,
     "song_skin": {
-      "background": "#240B3B",
+      "background": "#7401DF",
       "bg_img": "bg_genre_8.png",
-      "border": ["#380B61", "#DA81F5"],
+      "border": ["#380B61", "#380B61"],
       "info_fill": "#AC58FA",
       "outline": "#2F0B3A",
       "sort": 9
