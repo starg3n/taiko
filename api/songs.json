@@ -985,7 +985,7 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-      },
+  },
   {
     "id": 26,
     "order": 26,
@@ -1010,7 +1010,7 @@
       },
       "ura": null
     },
-    "preview": 40.620,
+    "preview": 40.62,
     "category_id": 2,
     "category": "Anime",
     "title_lang": {
@@ -1035,7 +1035,7 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-         },
+  },
   {
     "id": 27,
     "order": 27,
@@ -1063,6 +1063,90 @@
     "preview": 64.863,
     "category_id": 4,
     "category": "Variety",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+  },
+  {
+    "id": 28,
+    "order": 28,
+    "title": "In The End",
+    "subtitle": "--Linkin Park",
+    "courses": {
+      "easy": null,
+      "hard": null,
+      "normal": null,
+      "oni": {
+        "stars": 8,
+        "branch": false
+      },
+      "ura": null
+    },
+    "preview": 55.215,
+    "category_id": 1,
+    "category": "Pop",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+     },
+  {
+    "id": 29,
+    "order": 29,
+    "title": "360°",
+    "subtitle": "NAOKI-T feat. miwa/Doraemon： Nobita’s Space",
+    "courses": {
+      "easy": null,
+      "hard": null,
+      "normal": {
+        "stars":
+      }
+      "oni": {
+        "stars": 7,
+        "branch": false
+      },
+      "ura": null
+    },
+    "preview": 13.864,
+    "category_id": 1,
+    "category": "Pop",
     "title_lang": {
       "ja": null,
       "en": null,
