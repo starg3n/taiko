@@ -1180,8 +1180,8 @@
   {
     "id": 30,
     "order": 30,
-    "title": "INTERSTELLA 5555 (LOW QUALITY)",
-    "subtitle": "「Daft Punk」より",
+    "title": "INTERSTELLA 5555",
+    "subtitle": "Daft Punk",
     "courses": {
       "easy": null,
       "hard": null,
@@ -1193,8 +1193,8 @@
       "ura": null
     },
     "preview": 23.432,
-    "category_id": 4,
-    "category": "Variety",
+    "category_id": 9,
+    "category": "Daft Punk",
     "title_lang": {
       "ja": null,
       "en": null,

@@ -162,5 +162,25 @@
       "ko": "아니요",
       "tw": "No"
     }
+     },
+  {
+    "aliases": null,
+    "id": 9,
+    "song_skin": {
+      "background": "#240B3B",
+      "bg_img": "bg_genre_8.png",
+      "border": ["#380B61", "#DA81F5"],
+      "info_fill": "#AC58FA",
+      "outline": "#2F0B3A",
+      "sort": 9
+    },
+    "title": "Daft Punk",
+    "title_lang": {
+      "cn": "Daft Punk",
+      "en": "Daft Punk",
+      "ja": "ダフトパンク",
+      "ko": "다프트 펑크",
+      "tw": "Daft Punk"
+    }
   }
 ]
