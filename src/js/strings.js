@@ -45,7 +45,7 @@ var translations = {
 	},
 	titleDisclaimer: {
 		ja: "この非公式シミュレーターはバンダイナムコとは関係がありません。",
-		en: "New songs,
+		en: "New songs added weekly! Not affiliated with BANDAI NAMCO!",
 		cn: "这款非官方模拟器与BANDAI NAMCO无关。",
 		tw: "這款非官方模擬器與 BANDAI NAMCO 無關。",
 		ko: "이 비공식 시뮬레이터는 반다이 남코와 관련이 없습니다."
@@ -55,14 +55,14 @@ var translations = {
 	},
 	selectSong: {
 		ja: "曲をえらぶ",
-		en: "Select Song",
+		en: "Pick a Song",
 		cn: "选择乐曲",
 		tw: "選擇樂曲",
 		ko: "곡 선택"
 	},
 	selectDifficulty: {
 		ja: "むずかしさをえらぶ",
-		en: "Select Difficulty",
+		en: "Select a Difficulty",
 		cn: "选择难度",
 		tw: "選擇難度",
 		ko: "난이도 선택"
