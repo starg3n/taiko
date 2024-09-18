@@ -1035,5 +1035,55 @@
     "song_skin": null,
     "maker": null,
     "hash": null
+         },
+  {
+    "id": 27,
+    "order": 27,
+    "title": "You Will Know Our Names",
+    "subtitle": "--ACE+ (From Xenoblade Chronicles)",
+    "courses": {
+      "easy": {
+        "stars": 4,
+        "branch": false
+      },
+      "hard": {
+        "stars": 8,
+        "branch": false
+      },
+      "normal": {
+        "stars": 7,
+        "branch": false
+      },
+      "oni": {
+        "stars": 9,
+        "branch": false
+      },
+      "ura": null
+    },
+    "preview": 64.863,
+    "category_id": 4,
+    "category": "Variety",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
   }
 ]
