@@ -1126,18 +1126,25 @@
     "song_skin": null,
     "maker": null,
     "hash": null
-     },
+  },
   {
     "id": 29,
     "order": 29,
     "title": "360°",
     "subtitle": "NAOKI-T feat. miwa/Doraemon： Nobita’s Space",
     "courses": {
-      "easy": null,
-      "hard": null,
+      "easy": {
+        "stars": 2,
+        "branch": false
+      },
+      "hard": {
+        "stars": 5,
+        "branch": false
+      },
       "normal": {
-        "stars":
-      }
+        "stars": 3,
+        "branch": false
+      },
       "oni": {
         "stars": 7,
         "branch": false
@@ -1147,6 +1154,47 @@
     "preview": 13.864,
     "category_id": 1,
     "category": "Pop",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
+    "hash": null
+    },
+  {
+    "id": 30,
+    "order": 30,
+    "title": "INTERSTELLA 5555 (high end device only)",
+    "subtitle": "「Daft Punk」より",
+    "courses": {
+      "easy": null,
+      "hard": null,
+      "normal": null,
+      "oni": {
+        "stars": 12,
+        "branch": false
+      },
+      "ura": null
+    },
+    "preview": 23.432,
+    "category_id": 4,
+    "category": "Variety",
     "title_lang": {
       "ja": null,
       "en": null,
