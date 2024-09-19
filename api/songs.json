@@ -1362,21 +1362,21 @@
     "maker": null,
     "hash": null},
   {
-    "id": 3,
-    "order": 3,
+    "id": 34,
+    "order": 34,
     "title": "Glorious morning",
     "subtitle": "Waterflame",
     "courses": {
       "easy": {
-        "stars": 2,
+        "stars": 4,
         "branch": false
       },
       "normal": {
-        "stars": 6,
+        "stars": 5,
         "branch": false
       },
       "hard": {
-        "stars": 4,
+        "stars": 7,
         "branch": false
       },
       "oni": {
@@ -1388,9 +1388,9 @@
         "branch": false
       }
     },
-    "preview": 44.8,
-    "category_id": 3,
-    "category": "VOCALOID™ Music",
+    "preview": 37.92,
+    "category_id": 6,
+    "category": "Video Game Series",
     "title_lang": {
       "ja": null,
       "en": null,
