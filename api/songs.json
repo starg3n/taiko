@@ -1360,6 +1360,58 @@
     "offset": null,
     "song_skin": null,
     "maker": null,
+    "hash": null},
+  {
+    "id": 3,
+    "order": 3,
+    "title": "Glorious morning",
+    "subtitle": "Waterflame",
+    "courses": {
+      "easy": {
+        "stars": 2,
+        "branch": false
+      },
+      "normal": {
+        "stars": 6,
+        "branch": false
+      },
+      "hard": {
+        "stars": 4,
+        "branch": false
+      },
+      "oni": {
+        "stars": 8,
+        "branch": false
+      },
+      "ura": {
+        "stars": 9,
+        "branch": false
+      }
+    },
+    "preview": 44.8,
+    "category_id": 3,
+    "category": "VOCALOID™ Music",
+    "title_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "subtitle_lang": {
+      "ja": null,
+      "en": null,
+      "cn": null,
+      "tw": null,
+      "ko": null
+    },
+    "type": "tja",
+    "music_type": "ogg",
+    "volume": 1.0,
+    "lyrics": false,
+    "offset": null,
+    "song_skin": null,
+    "maker": null,
     "hash": null
   }
 ]
