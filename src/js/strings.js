@@ -45,7 +45,7 @@ var translations = {
   },
   titleDisclaimer: {
     ja: "この非公式シミュレーターはバンダイナムコとは関係がありません。",
-    en: "New official (and custom!) songs added weekly! (because i'm lazy to add all in one sitting!) Not affiliated with BANDAI NAMCO!",
+    en: "Not affiliated with BANDAI NAMCO!",
     cn: "这款非官方模拟器与BANDAI NAMCO无关。",
     tw: "這款非官方模擬器與 BANDAI NAMCO 無關。",
     ko: "이 비공식 시뮬레이터는 반다이 남코와 관련이 없습니다.",
